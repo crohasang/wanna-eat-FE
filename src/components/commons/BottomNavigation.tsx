@@ -21,6 +21,7 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
         position: fixed;
         bottom: 0;
         border-top: 1px solid #dedede;
+        background-color: white;
       `}
     >
       <Col alignItems='center'>
@@ -42,7 +43,7 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
         >
           그룹
         </span>
-      </Col>{' '}
+      </Col>
       <Col alignItems='center'>
         <img src={active === 'community' ? filledTestImg : testImg} />
         <span
@@ -52,7 +53,7 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
         >
           커뮤니티
         </span>
-      </Col>{' '}
+      </Col>
       <Col alignItems='center'>
         <img src={active === 'mypage' ? filledTestImg : testImg} />
         <span

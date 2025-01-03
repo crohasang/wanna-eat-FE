@@ -15,9 +15,10 @@ const Header = (props: HeaderProps) => {
       css={css`
         width: 100%;
         position: fixed;
-        margin: 10px 20px;
+        padding: 10px 20px;
         font-weight: 700;
         font-size: 24px;
+        background-color: white;
       `}
     >
       <div>{text}</div>
