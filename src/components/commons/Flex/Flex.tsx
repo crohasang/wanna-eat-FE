@@ -24,7 +24,7 @@ export const Row = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
   } = props;
 
   return (
-    <Flex ref={ref} {...others} justify={justify} align={align} radius={radius} direction="row">
+    <Flex ref={ref} {...others} justify={justify} align={align} radius={radius} direction='row'>
       {children}
     </Flex>
   );
@@ -40,7 +40,7 @@ export const Col = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
   } = props;
 
   return (
-    <Flex ref={ref} {...others} justify={justify} align={align} radius={radius} direction="column">
+    <Flex ref={ref} {...others} justify={justify} align={align} radius={radius} direction='column'>
       {children}
     </Flex>
   );
