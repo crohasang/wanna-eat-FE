@@ -7,24 +7,54 @@ import ProgressBar from '../components/register/ProgressBar';
 import { Col } from '../components/commons/Flex';
 import NameStep from '../components/register/NameStep';
 import GenderStep from '../components/register/GenderStep';
+import DepartmentStep from '../components/register/DepartmentStep';
 
 const Register = () => {
   const [step, setStep] = useState(1);
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState<'male' | 'female' | null>(null);
+  const [department, setDepartment] = useState('');
 
   const handleNextStep = () => {
     if (step === 1 && nickname.trim()) {
       setStep(2);
     } else if (step === 2 && gender) {
+      setStep(3);
+    } else if (step === 3 && department) {
       // Handle final submission
-      console.log('Submitted:', { nickname, gender });
+      console.log('Submitted:', { nickname, gender, department });
     }
   };
 
   const handleBack = () => {
     if (step > 1) {
       setStep(step - 1);
+    }
+  };
+
+  const getCurrentStep = () => {
+    switch (step) {
+      case 1:
+        return <NameStep nickname={nickname} onNicknameChange={setNickname} />;
+      case 2:
+        return <GenderStep gender={gender} onGenderChange={setGender} />;
+      case 3:
+        return <DepartmentStep department={department} onDepartmentChange={setDepartment} />;
+      default:
+        return null;
+    }
+  };
+
+  const isNextDisabled = () => {
+    switch (step) {
+      case 1:
+        return !nickname.trim();
+      case 2:
+        return !gender;
+      case 3:
+        return !department;
+      default:
+        return true;
     }
   };
 
@@ -62,17 +92,7 @@ const Register = () => {
           <ProgressBar currentStep={step} totalSteps={7} />
         </div>
         
-        {step === 1 ? (
-          <NameStep 
-            nickname={nickname}
-            onNicknameChange={setNickname}
-          />
-        ) : (
-          <GenderStep
-            gender={gender}
-            onGenderChange={setGender}
-          />
-        )}
+        {getCurrentStep()}
       </Col>
       
       <div
@@ -84,7 +104,7 @@ const Register = () => {
       >
         <Button 
           onClick={handleNextStep}
-          disabled={step === 1 ? !nickname.trim() : !gender}
+          disabled={isNextDisabled()}
         >
           다음
         </Button>
