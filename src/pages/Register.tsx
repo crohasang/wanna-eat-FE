@@ -8,12 +8,14 @@ import { Col } from '../components/commons/Flex';
 import NameStep from '../components/register/NameStep';
 import GenderStep from '../components/register/GenderStep';
 import DepartmentStep from '../components/register/DepartmentStep';
+import RestaurantTypeStep from '../components/register/RestaurantTypeStep';
 
 const Register = () => {
   const [step, setStep] = useState(1);
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState<'male' | 'female' | null>(null);
   const [department, setDepartment] = useState('');
+  const [restaurantType, setRestaurantType] = useState('');
 
   const handleNextStep = () => {
     if (step === 1 && nickname.trim()) {
@@ -21,8 +23,10 @@ const Register = () => {
     } else if (step === 2 && gender) {
       setStep(3);
     } else if (step === 3 && department) {
+      setStep(4);
+    } else if (step === 4 && restaurantType) {
       // Handle final submission
-      console.log('Submitted:', { nickname, gender, department });
+      console.log('Submitted:', { nickname, gender, department, restaurantType });
     }
   };
 
@@ -40,6 +44,8 @@ const Register = () => {
         return <GenderStep gender={gender} onGenderChange={setGender} />;
       case 3:
         return <DepartmentStep department={department} onDepartmentChange={setDepartment} />;
+      case 4:
+        return <RestaurantTypeStep selectedType={restaurantType} onTypeChange={setRestaurantType} />;
       default:
         return null;
     }
@@ -53,6 +59,8 @@ const Register = () => {
         return !gender;
       case 3:
         return !department;
+      case 4:
+        return !restaurantType;
       default:
         return true;
     }
