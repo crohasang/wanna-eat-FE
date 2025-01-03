@@ -5,13 +5,27 @@ import BackButton from '../components/common/BackButton';
 import Button from '../components/common/Button';
 import ProgressBar from '../components/register/ProgressBar';
 import { Col } from '../components/commons/Flex';
+import NameStep from '../components/register/NameStep';
+import GenderStep from '../components/register/GenderStep';
 
 const Register = () => {
+  const [step, setStep] = useState(1);
   const [nickname, setNickname] = useState('');
+  const [gender, setGender] = useState<'male' | 'female' | null>(null);
 
-  const handleSubmit = () => {
-    // Handle form submission
-    console.log('Submitted nickname:', nickname);
+  const handleNextStep = () => {
+    if (step === 1 && nickname.trim()) {
+      setStep(2);
+    } else if (step === 2 && gender) {
+      // Handle final submission
+      console.log('Submitted:', { nickname, gender });
+    }
+  };
+
+  const handleBack = () => {
+    if (step > 1) {
+      setStep(step - 1);
+    }
   };
 
   return (
@@ -40,46 +54,25 @@ const Register = () => {
             margin-bottom: 40px;
           `}
         >
-          <BackButton to="/" />
-          <ProgressBar currentStep={1} totalSteps={7} />
+          {step === 1 ? (
+            <BackButton to="/" />
+          ) : (
+            <BackButton onClick={handleBack} />
+          )}
+          <ProgressBar currentStep={step} totalSteps={7} />
         </div>
         
-        <Col gap="12px" alignItems="start">
-          <p
-            css={css`
-              color: var(--black-accents-5, #111);
-              font-size: 26px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 140%;
-              white-space: pre-line;
-              text-align: start;
-            `}
-          >
-            {'반가워요!\n이름을 입력해주세요'}
-          </p>
-          
-          <input
-            type="text"
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
-            placeholder="이름"
-            css={css`
-              width: 100%;
-              padding: 12px 16px;
-              border: none;
-              border-bottom: 1px solid #ddd;
-              font-size: 16px;
-              margin-bottom: 24px;
-              text-align: start;
-              
-              &:focus {
-                outline: none;
-                border-bottom-color: #4CAF50;
-              }
-            `}
+        {step === 1 ? (
+          <NameStep 
+            nickname={nickname}
+            onNicknameChange={setNickname}
           />
-        </Col>
+        ) : (
+          <GenderStep
+            gender={gender}
+            onGenderChange={setGender}
+          />
+        )}
       </Col>
       
       <div
@@ -89,7 +82,10 @@ const Register = () => {
           padding: 20px;
         `}
       >
-        <Button onClick={handleSubmit} disabled={!nickname.trim()}>
+        <Button 
+          onClick={handleNextStep}
+          disabled={step === 1 ? !nickname.trim() : !gender}
+        >
           다음
         </Button>
       </div>
