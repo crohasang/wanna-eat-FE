@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
 import MyPage from './pages/MyPage';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path='/onboarding' element={<Onboarding />} />
         <Route path='/myPage' element={<MyPage />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
       </Routes>
     </BrowserRouter>
