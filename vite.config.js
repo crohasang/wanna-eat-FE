@@ -9,10 +9,14 @@ export default defineConfig({
         }),
         VitePWA({
             registerType: 'autoUpdate',
+            devOptions: {
+                enabled: true,
+                type: 'module'
+            },
             manifest: {
                 name: 'Wanna Eat',
-                short_name: 'WannaEat',
-                description: 'Food recommendation app',
+                short_name: 'Wanna Eat',
+                description: 'App for workers to decide food',
                 theme_color: '#ffffff',
                 icons: [
                     {
