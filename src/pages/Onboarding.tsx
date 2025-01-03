@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Col } from '../components/flex/Flex';
+import { Col } from '../components/commons/Flex';
 
 const Onboarding = () => {
   const handleGoogleLogin = () => {
@@ -9,8 +9,8 @@ const Onboarding = () => {
 
   return (
     <Col
-      justifyContent="center"
-      alignItems="center"
+      justifyContent='center'
+      alignItems='center'
       css={css`
         height: 100%;
         width: 100%;
@@ -28,9 +28,9 @@ const Onboarding = () => {
       >
         먹을래
       </h1>
-      <img 
-        src="/google_button.svg" 
-        alt="Google Login" 
+      <img
+        src='/google_button.svg'
+        alt='Google Login'
         onClick={handleGoogleLogin}
         css={css`
           cursor: pointer;
