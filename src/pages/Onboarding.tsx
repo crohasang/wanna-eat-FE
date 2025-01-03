@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Col } from '../components/commons/Flex/Flex';
+import { Col } from '../components/commons/Flex';
 
 const Onboarding = () => {
   const handleGoogleLogin = () => {

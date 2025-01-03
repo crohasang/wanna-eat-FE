@@ -7,7 +7,7 @@ interface HeaderProps {
   rightButton?: string;
 }
 const Header = (props: HeaderProps) => {
-  const { text, hasRightButton, rightButton } = props;
+  const { text, hasRightButton = false, rightButton } = props;
   return (
     <Row
       justifyContent='space-between'
