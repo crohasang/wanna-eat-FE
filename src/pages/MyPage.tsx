@@ -4,7 +4,14 @@ import { Col } from '../components/commons/Flex';
 import Header from '../components/commons/Header';
 import ContentBox from '../components/MyPage/ContentBox';
 
-const data = [
+const data: Array<{
+  title: string;
+  items: Array<{
+    text: string;
+    subText?: string;
+    type: 'toggle' | 'link';
+  }>;
+}> = [
   {
     title: '나의 커뮤니티',
     items: [
