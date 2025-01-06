@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import BottomNavigation from '../components/commons/BottomNavigation';
 import { Col } from '../components/commons/Flex';
 import Header from '../components/commons/Header';
-import ContentBox from '../components/MyPage/ContentBox';
+import ContentBox from '../components/myPage/ContentBox';
 
 const data: Array<{
   title: string;
