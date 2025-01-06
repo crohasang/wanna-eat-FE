@@ -9,6 +9,8 @@ import NameStep from '../components/register/NameStep';
 import GenderStep from '../components/register/GenderStep';
 import DepartmentStep from '../components/register/DepartmentStep';
 import RestaurantTypeStep from '../components/register/RestaurantTypeStep';
+import RestaurantCharacteristicsStep from '../components/register/RestaurantCharacteristicsStep';
+import CafeBrandStep from '../components/register/CafeBrandStep';
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -16,6 +18,12 @@ const Register = () => {
   const [gender, setGender] = useState<'male' | 'female' | null>(null);
   const [department, setDepartment] = useState('');
   const [restaurantType, setRestaurantType] = useState('');
+  const [characteristics, setCharacteristics] = useState({
+    atmosphere: '',
+    purpose: '',
+    size: ''
+  });
+  const [cafeBrandSearch, setCafeBrandSearch] = useState('');
 
   const handleNextStep = () => {
     if (step === 1 && nickname.trim()) {
@@ -25,8 +33,19 @@ const Register = () => {
     } else if (step === 3 && department) {
       setStep(4);
     } else if (step === 4 && restaurantType) {
+      setStep(5);
+    } else if (step === 5 && characteristics.atmosphere && characteristics.purpose && characteristics.size) {
+      setStep(6);
+    } else if (step === 6) {
       // Handle final submission
-      console.log('Submitted:', { nickname, gender, department, restaurantType });
+      console.log('Submitted:', {
+        nickname,
+        gender,
+        department,
+        restaurantType,
+        characteristics,
+        cafeBrandSearch
+      });
     }
   };
 
@@ -34,6 +53,13 @@ const Register = () => {
     if (step > 1) {
       setStep(step - 1);
     }
+  };
+
+  const handleCharacteristicChange = (category: 'atmosphere' | 'purpose' | 'size', value: string) => {
+    setCharacteristics(prev => ({
+      ...prev,
+      [category]: value
+    }));
   };
 
   const getCurrentStep = () => {
@@ -46,6 +72,20 @@ const Register = () => {
         return <DepartmentStep department={department} onDepartmentChange={setDepartment} />;
       case 4:
         return <RestaurantTypeStep selectedType={restaurantType} onTypeChange={setRestaurantType} />;
+      case 5:
+        return (
+          <RestaurantCharacteristicsStep
+            characteristics={characteristics}
+            onCharacteristicChange={handleCharacteristicChange}
+          />
+        );
+      case 6:
+        return (
+          <CafeBrandStep
+            searchQuery={cafeBrandSearch}
+            onSearchChange={setCafeBrandSearch}
+          />
+        );
       default:
         return null;
     }
@@ -61,6 +101,10 @@ const Register = () => {
         return !department;
       case 4:
         return !restaurantType;
+      case 5:
+        return !(characteristics.atmosphere && characteristics.purpose && characteristics.size);
+      case 6:
+        return false; // 검색어는 필수가 아님
       default:
         return true;
     }
