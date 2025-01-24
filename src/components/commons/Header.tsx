@@ -2,12 +2,14 @@ import { css } from '@emotion/react';
 import { Row } from './Flex';
 
 interface HeaderProps {
-  text: string;
+  text?: string;
+  hasLeftImg?: boolean;
+  leftImg?: string;
   hasRightButton?: boolean;
   rightButtons?: string[];
 }
 const Header = (props: HeaderProps) => {
-  const { text, hasRightButton = false, rightButtons = [] } = props;
+  const { text, hasRightButton = false, rightButtons = [], hasLeftImg = false, leftImg } = props;
   return (
     <Row
       justifyContent='space-between'
@@ -21,12 +23,25 @@ const Header = (props: HeaderProps) => {
         background-color: white;
       `}
     >
+      {hasLeftImg && <img src={leftImg}></img>}
       <div>{text}</div>
       {hasRightButton && (
         <div>
           {rightButtons.map((button, index) => (
-            <button key={index}>
-              <img src={button} />
+            <button
+              css={css`
+                background-color: #fff;
+                padding: 0;
+              `}
+              key={index}
+            >
+              <img
+                css={css`
+                  width: 6vw;
+                  margin-left: 3vw;
+                `}
+                src={button}
+              />
             </button>
           ))}
         </div>

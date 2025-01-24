@@ -14,7 +14,12 @@ const Home = () => {
       `}
     >
       d
-      <Header text={topPhrase} hasRightButton={true} rightButtons={[searchImg, alarmImg]} />
+      <Header
+        hasLeftImg={true}
+        leftImg={topPhrase}
+        hasRightButton={true}
+        rightButtons={[searchImg, alarmImg]}
+      />
     </Col>
   );
 };
