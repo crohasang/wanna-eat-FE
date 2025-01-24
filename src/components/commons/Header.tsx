@@ -4,10 +4,10 @@ import { Row } from './Flex';
 interface HeaderProps {
   text: string;
   hasRightButton?: boolean;
-  rightButton?: string;
+  rightButtons?: string[];
 }
 const Header = (props: HeaderProps) => {
-  const { text, hasRightButton = false, rightButton } = props;
+  const { text, hasRightButton = false, rightButtons = [] } = props;
   return (
     <Row
       justifyContent='space-between'
@@ -23,10 +23,13 @@ const Header = (props: HeaderProps) => {
     >
       <div>{text}</div>
       {hasRightButton && (
-        <button>
-          {' '}
-          <img src={rightButton} alt='' />
-        </button>
+        <div>
+          {rightButtons.map((button, index) => (
+            <button key={index}>
+              <img src={button} />
+            </button>
+          ))}
+        </div>
       )}
     </Row>
   );

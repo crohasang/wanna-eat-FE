@@ -14,7 +14,6 @@ function App() {
       Notification.requestPermission().then((permission) => {
         console.log('알림 허용이 되어있나요 :', permission);
         if (permission === 'granted') {
-          
           // FCM 토큰 요청
           requestForToken().then((token) => {
             if (token) {
@@ -32,17 +31,17 @@ function App() {
 
     // Foreground 메시지 수신 처리
     onMessageListener()
-      .then((payload : any) => {
+      .then((payload: any) => {
         // Foreground에서 알림 표시
         if (Notification.permission === 'granted') {
           new Notification(payload.notification.title, {
             body: payload.notification.body,
-            icon: '/logo.png'
+            icon: '/logo.png',
           });
         }
         if (Notification.permission === 'denied') {
-          console.log('알림이 거부되었어요!'); 
-                }
+          console.log('알림이 거부되었어요!');
+        }
       })
       .catch((err) => console.log('메시지 수신 에러:', err));
   }, []);
@@ -53,7 +52,7 @@ function App() {
         <Route path='/onboarding' element={<Onboarding />} />
         <Route path='/myPage' element={<MyPage />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/home' element={<Home />}
+        <Route path='/home' element={<Home />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
       </Routes>
     </BrowserRouter>
