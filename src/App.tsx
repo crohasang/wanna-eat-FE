@@ -7,10 +7,6 @@ import { requestForToken, onMessageListener } from './firebase/firebase';
 import Splash from './pages/Splash';
 
 function App() {
-  // const [showSplash, setShowSplash] = useState(() => {
-  //   const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-  //   return !hasSeenSplash;
-  // });
 
   const [showSplash, setShowSplash] = useState(() => {
     const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
