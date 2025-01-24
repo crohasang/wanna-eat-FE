@@ -12,27 +12,32 @@ const Button = ({ width = '100%', children, ...props }: ButtonProps) => {
     <button
       css={css`
         width: ${width};
-        padding: 16px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        
-        &:hover {
-          background-color: #45a049;
-        }
-        
-        &:disabled {
-          background-color: #cccccc;
-          cursor: not-allowed;
-        }
+        display: flex;
+        padding: 20px 169px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        border-radius: 20px;
+        border: 1px solid #F66;
+        background: #F66;
+        white-space: nowrap;
       `}
       {...props}
     >
+      <div css={css`
+        color: #FFF;
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        display: inline-block; 
+      `}
+      >
       {children}
+      </div>
     </button>
   );
 };
