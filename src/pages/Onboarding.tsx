@@ -1,11 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { useNavigate } from 'react-router-dom';
 import { Col } from '../components/commons/Flex';
 import logoPhrase from '../assets/home/logoPhrase.svg'
-import logoImg from '../assets/home/logoImg.svg'
+import appLogoWhite from '../assets/home/appLogoWhite.svg'
 import Button from '../components/common/Button';
 
 const Onboarding = () => {
+  const navigate = useNavigate();
   return (
     <Col
       justifyContent='center'
@@ -21,7 +23,7 @@ const Onboarding = () => {
       `}
     >
       <div css={css`
-      font-family: 'BMkkubulimTTF-Regular';
+      font-family: 'BM kkubulim';
       color: var(--Text, #3D3D3D);
       text-align: center;
       font-size: 17px;
@@ -30,6 +32,12 @@ const Onboarding = () => {
       line-height: 22px; /* 129.412% */
       letter-spacing: -0.085px;
       `}>같이 먹는 즐거움,</div>
+      <img src={appLogoWhite} css={css`
+        margin-top: 20px;
+        width: 177px;
+        height: 154px;
+      `} 
+        alt="logo img" />
       <img src={logoPhrase} css={css`
         margin-top: 10px;
         display: flex;
@@ -40,16 +48,16 @@ const Onboarding = () => {
         filter: brightness(0);
         `} 
         alt="logo phrase" />
-      <img src={logoImg} css={css`
-        margin-top: 20px;
-        width: 177px;
-        height: 154px;
-      `} 
-        alt="logo img" />
-      <Button css={css`
-      position: fixed;
-      bottom: 36px;
-      `}>시작하기</Button>
+      
+      <Button 
+        css={css`
+          position: fixed;
+          bottom: 36px;
+        `}
+        onClick={() => navigate('/login')}
+      >
+        시작하기
+      </Button>
     </Col>
   );
 };

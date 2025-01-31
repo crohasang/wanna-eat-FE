@@ -4,6 +4,8 @@ import Onboarding from './pages/Onboarding';
 import MyPage from './pages/MyPage';
 import Register from './pages/Register';
 import { requestForToken, onMessageListener } from './firebase/firebase';
+import Login from './pages/Login';
+import FindEmailAndPassword from './pages/FindEmailAndPassword';
 
 function App() {
   useEffect(() => {
@@ -50,6 +52,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/onboarding' element={<Onboarding />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
         <Route path='/myPage' element={<MyPage />} />
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
