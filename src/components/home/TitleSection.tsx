@@ -9,7 +9,11 @@ interface TitleSectionProps {
 
 const TitleSection = ({ title, subtitle }: TitleSectionProps) => {
   return (
-    <Col css={css``}>
+    <Col
+      css={css`
+        padding: 1em 1em 0 1em;
+      `}
+    >
       <h3
         css={css`
           margin: 0;

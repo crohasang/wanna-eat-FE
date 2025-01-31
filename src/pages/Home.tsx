@@ -25,9 +25,7 @@ const Home = () => {
           css={css`
             margin: 12vh 0 0 0;
             padding: 0;
-
             justify-content: space-between;
-            box-sizing: border-box;
           `}
         >
           <button
@@ -43,7 +41,6 @@ const Home = () => {
               align-items: center;
               justify-content: center;
               padding: 0.2em;
-
               gap: 1em;
               border-radius: 0;
               width: 50%;
@@ -81,12 +78,6 @@ const Home = () => {
           `}
         />
         {selectedTab === 'restaurant' ? <Restaurant /> : <Cafe />}
-        <div
-          css={css`
-            background-color: #fafafa;
-            height: 1vh;
-          `}
-        />
       </Col>
     </>
   );
