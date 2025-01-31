@@ -7,6 +7,8 @@ import alarmImg from '../assets/home/alarm.svg';
 import { useState } from 'react';
 import restaurantImg from '../assets/home/restaurant.svg';
 import cafeImg from '../assets/home/cafe.svg';
+import Restaurant from '../components/home/Restaurant';
+import Cafe from '../components/home/Cafe';
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState('restaurant');
@@ -72,6 +74,7 @@ const Home = () => {
             카페
           </button>
         </Row>
+        {selectedTab === 'restaurant' ? <Restaurant /> : <Cafe />}
       </Col>
     </>
   );
