@@ -15,12 +15,12 @@ const Header = (props: HeaderProps) => {
       justifyContent='space-between'
       alignItems='center'
       css={css`
-        width: 100%;
         position: fixed;
         padding: 10px 20px;
         font-weight: 700;
         font-size: 24px;
         background-color: white;
+        box-sizing: border-box;
       `}
     >
       {hasLeftImg && <img src={leftImg}></img>}
