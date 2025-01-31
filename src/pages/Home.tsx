@@ -20,7 +20,7 @@ const Home = () => {
         hasRightButton={true}
         rightButtons={[searchImg, alarmImg]}
       />
-      <Col css={css``}>
+      <Col>
         <Row
           css={css`
             margin: 12vh 0 0 0;
@@ -74,7 +74,19 @@ const Home = () => {
             카페
           </button>
         </Row>
+        <div
+          css={css`
+            background-color: #fafafa;
+            height: 1vh;
+          `}
+        />
         {selectedTab === 'restaurant' ? <Restaurant /> : <Cafe />}
+        <div
+          css={css`
+            background-color: #fafafa;
+            height: 1vh;
+          `}
+        />
       </Col>
     </>
   );

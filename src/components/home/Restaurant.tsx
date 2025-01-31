@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { Col } from '../commons/Flex';
 import { useState } from 'react';
 import StoreRanking from './StoreRanking';
+import TitleSection from './TitleSection';
 
 const dummyData = [
   {
@@ -45,21 +46,7 @@ const Restaurant = () => {
           padding: 1em;
         `}
       >
-        <h3
-          css={css`
-            margin: 0;
-          `}
-        >
-          이 달의 단체 식당 랭킹
-        </h3>
-        <span
-          css={css`
-            font-size: 12px;
-            color: #878787;
-          `}
-        >
-          단체 예약이 가능한 식당이에요.
-        </span>
+        <TitleSection title='이 달의 단체 식당 랭킹' subtitle='단체 예약이 가능한 식당이에요.' />
 
         {restaurants.map((restaurant, index) => (
           <StoreRanking
