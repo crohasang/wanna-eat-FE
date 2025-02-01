@@ -75,6 +75,17 @@ const Restaurant = () => {
         name={visitedRestaurantData.name}
         category={visitedRestaurantData.category}
       />
+      <div
+        css={css`
+          background-color: #fafafa;
+          height: 1vh;
+        `}
+      />
+      <TitleSection
+        title='나의 회사 근처 식당'
+        subtitle='먹을래님의 회사에서 가까운 식당이에요.'
+        isRightButton={true}
+      ></TitleSection>
     </Col>
   );
 };
