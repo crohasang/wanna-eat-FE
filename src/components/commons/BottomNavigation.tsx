@@ -31,40 +31,40 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
       `}
     >
       <Col alignItems='center'>
-        <img src={active === 'home' ? homeImg : filledHomeImg} />
+        <img src={active === 'home' ? filledHomeImg : homeImg} />
         <span
           css={css`
-            color: ${active === 'home' ? 'black' : '#d7d7d7'};
+            color: ${active === 'home' ? '#f66' : '#d7d7d7'};
           `}
         >
           홈
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'group' ? eatImg : filledEatImg} />
+        <img src={active === 'group' ? filledEatImg : eatImg} />
         <span
           css={css`
-            color: ${active === 'group' ? 'black' : '#d7d7d7'};
+            color: ${active === 'group' ? '#f66' : '#d7d7d7'};
           `}
         >
           먹팟
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'community' ? communityImg : filledCommunityImg} />
+        <img src={active === 'community' ? filledCommunityImg : communityImg} />
         <span
           css={css`
-            color: ${active === 'community' ? 'black' : '#d7d7d7'};
+            color: ${active === 'community' ? '#f66' : '#d7d7d7'};
           `}
         >
           커뮤니티
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'mypage' ? mypageImg : filledMypageImg} />
+        <img src={active === 'mypage' ? filledMypageImg : mypageImg} />
         <span
           css={css`
-            color: ${active === 'mypage' ? 'black' : '#d7d7d7'};
+            color: ${active === 'mypage' ? '#f66' : '#d7d7d7'};
           `}
         >
           마이페이지

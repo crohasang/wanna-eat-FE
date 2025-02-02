@@ -9,6 +9,7 @@ import restaurantImg from '../assets/home/restaurant.svg';
 import cafeImg from '../assets/home/cafe.svg';
 import Restaurant from '../components/home/Restaurant';
 import Cafe from '../components/home/Cafe';
+import BottomNavigation from '../components/commons/BottomNavigation';
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState('restaurant');
@@ -77,8 +78,15 @@ const Home = () => {
             height: 1vh;
           `}
         />
-        {selectedTab === 'restaurant' ? <Restaurant /> : <Cafe />}
+        <div
+          css={css`
+            margin-bottom: 12vh;
+          `}
+        >
+          {selectedTab === 'restaurant' ? <Restaurant /> : <Cafe />}
+        </div>
       </Col>
+      <BottomNavigation active='home' />
     </>
   );
 };
