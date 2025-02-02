@@ -1,7 +1,13 @@
 import { css } from '@emotion/react';
 import { Col, Row } from './Flex';
-import testImg from '../../assets/test.svg';
-import filledTestImg from '../../assets/test2.svg';
+import homeImg from '../../assets/home/navigationHome.svg';
+import filledHomeImg from '../../assets/home/navigationHomeFilled.svg';
+import eatImg from '../../assets/home/navigationEat.svg';
+import filledEatImg from '../../assets/home/navigationEatFilled.svg';
+import communityImg from '../../assets/home/navigationComunity.svg';
+import filledCommunityImg from '../../assets/home/navigationComunityFilled.svg';
+import mypageImg from '../../assets/home/navigationMypage.svg';
+import filledMypageImg from '../../assets/home/navigationMypageFilled.svg';
 
 interface BottomNavigationProps {
   active: 'home' | 'group' | 'community' | 'mypage';
@@ -25,7 +31,7 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
       `}
     >
       <Col alignItems='center'>
-        <img src={active === 'home' ? filledTestImg : testImg} />
+        <img src={active === 'home' ? homeImg : filledHomeImg} />
         <span
           css={css`
             color: ${active === 'home' ? 'black' : '#d7d7d7'};
@@ -35,17 +41,17 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'group' ? filledTestImg : testImg} />
+        <img src={active === 'group' ? eatImg : filledEatImg} />
         <span
           css={css`
             color: ${active === 'group' ? 'black' : '#d7d7d7'};
           `}
         >
-          그룹
+          먹팟
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'community' ? filledTestImg : testImg} />
+        <img src={active === 'community' ? communityImg : filledCommunityImg} />
         <span
           css={css`
             color: ${active === 'community' ? 'black' : '#d7d7d7'};
@@ -55,7 +61,7 @@ const BottomNavigation = ({ active }: BottomNavigationProps) => {
         </span>
       </Col>
       <Col alignItems='center'>
-        <img src={active === 'mypage' ? filledTestImg : testImg} />
+        <img src={active === 'mypage' ? mypageImg : filledMypageImg} />
         <span
           css={css`
             color: ${active === 'mypage' ? 'black' : '#d7d7d7'};
