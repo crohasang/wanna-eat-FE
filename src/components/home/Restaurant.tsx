@@ -4,6 +4,7 @@ import { useState } from 'react';
 import StoreRanking from './StoreRanking';
 import TitleSection from './TitleSection';
 import VisitedRestaurant from './VisitedRestaurant';
+import HomeCard from './HomeCard';
 
 const groupRestaurantData = [
   {
@@ -28,18 +29,51 @@ const groupRestaurantData = [
     isFavorite: false,
   },
 ];
+
 const visitedRestaurantData = {
   name: '성수노루',
   category: '곱창, 막창, 양',
 };
 
+const HomeCardList = [
+  {
+    name: '성수노루',
+    category: '곱창, 막창, 양',
+    address: '서울 성동구 아차산로 110 1층',
+    imageUrls: [
+      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
+      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
+    ],
+    tag: ['시끌벅적한', '대규모', '회식에 딱'],
+    isFavorite: true,
+  },
+  {
+    name: '건대치킨',
+    category: '치킨',
+    address: '서울 광진구 능동로 100',
+    imageUrls: [
+      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
+    ],
+    isFavorite: false,
+  },
+];
+
 const Restaurant = () => {
   const [groupRestaurants, setGroupRestaurants] = useState(groupRestaurantData);
+  const [homeCards, setHomeCards] = useState(HomeCardList);
 
-  const toggleFavorite = (index: number) => {
+  const toggleGroupFavorite = (index: number) => {
     setGroupRestaurants((prev) =>
       prev.map((restaurant, i) =>
         i === index ? { ...restaurant, isFavorite: !restaurant.isFavorite } : restaurant
+      )
+    );
+  };
+
+  const toggleHomeCardFavorite = (index: number) => {
+    setHomeCards((prev) =>
+      prev.map((homeCard, i) =>
+        i === index ? { ...homeCard, isFavorite: !homeCard.isFavorite } : homeCard
       )
     );
   };
@@ -60,7 +94,7 @@ const Restaurant = () => {
             category={restaurant.category}
             openInfo={restaurant.openInfo}
             isFavorite={restaurant.isFavorite}
-            onToggleFavorite={() => toggleFavorite(index)}
+            onToggleFavorite={() => toggleGroupFavorite(index)}
           />
         ))}
       </Col>
@@ -85,7 +119,21 @@ const Restaurant = () => {
         title='나의 회사 근처 식당'
         subtitle='먹을래님의 회사에서 가까운 식당이에요.'
         isRightButton={true}
-      ></TitleSection>
+      />
+      <Col>
+        {homeCards.map((homeCard, index) => (
+          <HomeCard
+            key={index}
+            name={homeCard.name}
+            category={homeCard.category}
+            address={homeCard.address}
+            tag={homeCard.tag || []}
+            imageUrl={homeCard.imageUrls || []}
+            isFavorite={homeCard.isFavorite}
+            onToggleFavorite={() => toggleHomeCardFavorite(index)}
+          />
+        ))}
+      </Col>
     </Col>
   );
 };

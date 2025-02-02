@@ -39,12 +39,13 @@ const TitleSection = ({ title, subtitle, isRightButton = false }: TitleSectionPr
           css={css`
             display: flex;
             font-size: 12px;
-            background-color: #fff;
+            background: none;
             color: #878787;
             gap: 8px;
             justify-content: center;
             align-items: center;
             white-space: nowrap;
+            cursor: pointer;
           `}
         >
           <span>전체보기</span>
