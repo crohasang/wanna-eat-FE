@@ -45,6 +45,9 @@ const Home = () => {
               gap: 1em;
               border-radius: 0;
               width: 50%;
+              :focus {
+                outline: none;
+              }
             `}
           >
             <img src={restaurantImg} alt='restaurantImg' />
@@ -66,6 +69,9 @@ const Home = () => {
               width: 50%;
               gap: 1em;
               padding: 0.2em;
+              :focus {
+                outline: none;
+              }
             `}
           >
             <img src={cafeImg} alt='cafeImg' />
