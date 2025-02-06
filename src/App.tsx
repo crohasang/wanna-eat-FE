@@ -5,6 +5,7 @@ import MyPage from './pages/MyPage';
 import Register from './pages/Register';
 import { requestForToken, onMessageListener } from './firebase/firebase';
 import Home from './pages/Home';
+import RestaurantList from './pages/RestaurantList';
 
 function App() {
   useEffect(() => {
@@ -53,6 +54,8 @@ function App() {
         <Route path='/myPage' element={<MyPage />} />
         <Route path='/register' element={<Register />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/home/restaurant' element={<RestaurantList />} />
+
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
       </Routes>
     </BrowserRouter>
