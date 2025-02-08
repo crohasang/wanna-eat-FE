@@ -1,9 +1,9 @@
 import { Col } from '../components/commons/Flex';
 import BackHeader from '../components/commons/BackHeader';
-import SearchInput from '../components/common/SearchInput';
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import TagFilter from '../components/restaurantList/TagFilter';
+import SearchBar from '../components/common/SearchBar';
 
 const TAGS = ['가까운', '회식에 딱', '시끌벅적한', '분위기 있는'];
 
@@ -21,13 +21,8 @@ const RestaurantList = () => {
             width: 90%;
             margin-left: 5%;
           `}
-        >
-          <SearchInput
-            value={search}
-            onChange={() => setSearch}
-            placeholder='검색어를 입력해주세요.'
-          />
-        </div>
+        ></div>
+        <SearchBar value={search} onChange={(e) => setSearch(e.target.value)} />
         <h3
           css={css`
             margin-left: 1em;
