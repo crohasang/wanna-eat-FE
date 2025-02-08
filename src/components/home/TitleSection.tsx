@@ -2,14 +2,22 @@
 import { css } from '@emotion/react';
 import { Col, Row } from '../commons/Flex';
 import arrowImg from '../../assets/rightArrow.svg';
+import { useNavigate } from 'react-router-dom';
 
 interface TitleSectionProps {
   title: string;
   subtitle: string;
   isRightButton?: boolean;
+  navigateTo?: string;
 }
 
-const TitleSection = ({ title, subtitle, isRightButton = false }: TitleSectionProps) => {
+const TitleSection = ({
+  title,
+  subtitle,
+  isRightButton = false,
+  navigateTo,
+}: TitleSectionProps) => {
+  const navigate = useNavigate();
   return (
     <Row>
       <Col
@@ -34,7 +42,7 @@ const TitleSection = ({ title, subtitle, isRightButton = false }: TitleSectionPr
           {subtitle}
         </span>
       </Col>
-      {isRightButton && (
+      {isRightButton && navigateTo && (
         <button
           css={css`
             display: flex;
@@ -47,6 +55,7 @@ const TitleSection = ({ title, subtitle, isRightButton = false }: TitleSectionPr
             white-space: nowrap;
             cursor: pointer;
           `}
+          onClick={() => navigate(navigateTo)}
         >
           <span>전체보기</span>
           <img src={arrowImg} alt='arrowImg' />

@@ -119,6 +119,7 @@ const Restaurant = () => {
         title='나의 회사 근처 식당'
         subtitle='먹을래님의 회사에서 가까운 식당이에요.'
         isRightButton={true}
+        navigateTo='restaurant'
       />
       <Col>
         {homeCards.map((homeCard, index) => (
