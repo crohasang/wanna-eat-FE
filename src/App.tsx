@@ -4,6 +4,8 @@ import Onboarding from './pages/Onboarding';
 import MyPage from './pages/MyPage';
 import Register from './pages/Register';
 import { requestForToken, onMessageListener } from './firebase/firebase';
+import Login from './pages/Login';
+import FindEmailAndPassword from './pages/FindEmailAndPassword';
 import Splash from './pages/Splash';
 
 function App() {
@@ -64,15 +66,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes>        
         {showSplash ? (
           <Route path="*" element={<Splash />} />
         ) : (
           <>
-            <Route path='/onboarding' element={<Onboarding />} />
-            <Route path='/myPage' element={<MyPage />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/' element={<Navigate to='/onboarding' replace />} />
+        <Route path='/onboarding' element={<Onboarding />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
+        <Route path='/myPage' element={<MyPage />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}
       </Routes>
