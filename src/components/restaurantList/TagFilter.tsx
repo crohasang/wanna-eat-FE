@@ -26,7 +26,7 @@ const TagFilter = ({ tags, selectedTag, onSelectTag }: TagFilterProps) => {
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 14px;
-            border: 2px solid ${selectedTag === tag ? '#ff6666' : '#ddd'};
+            border: 1px solid ${selectedTag === tag ? '#ff6666' : '#ddd'};
             background-color: ${selectedTag === tag ? '#ffebeb' : 'white'};
             color: ${selectedTag === tag ? '#ff6666' : '#666'};
             cursor: pointer;
