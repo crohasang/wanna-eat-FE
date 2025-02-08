@@ -141,6 +141,8 @@ const HomeCard = ({
             width: 47%;
             border-radius: 20px;
             cursor: pointer;
+            border: solid 1px #e1e1e1;
+            background-color: #fff;
           `}
         >
           먹팟 만들기
@@ -150,6 +152,8 @@ const HomeCard = ({
             width: 47%;
             border-radius: 20px;
             cursor: pointer;
+            border: solid 1px #e1e1e1;
+            background-color: #fff;
           `}
         >
           현재 먹팟 참여
