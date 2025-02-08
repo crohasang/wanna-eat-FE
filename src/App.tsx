@@ -1,13 +1,20 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Onboarding from './pages/Onboarding';
 import MyPage from './pages/MyPage';
 import Register from './pages/Register';
 import { requestForToken, onMessageListener } from './firebase/firebase';
 import Login from './pages/Login';
 import FindEmailAndPassword from './pages/FindEmailAndPassword';
+import Splash from './pages/Splash';
 
 function App() {
+
+  const [showSplash, setShowSplash] = useState(() => {
+    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+    return !hasSeenSplash;
+  })
+
   useEffect(() => {
     // 알림 권한 요청
     if ('Notification' in window) {
@@ -46,17 +53,32 @@ function App() {
                 }
       })
       .catch((err) => console.log('메시지 수신 에러:', err));
-  }, []);
+
+    if (showSplash) {
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+        sessionStorage.setItem('hasSeenSplash', 'true');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showSplash]);
 
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes>        
+        {showSplash ? (
+          <Route path="*" element={<Splash />} />
+        ) : (
+          <>
         <Route path='/onboarding' element={<Onboarding />} />
         <Route path='/login' element={<Login />} />
         <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
         <Route path='/myPage' element={<MyPage />} />
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );
