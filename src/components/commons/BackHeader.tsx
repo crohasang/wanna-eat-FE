@@ -1,8 +1,10 @@
 import leftArrowImg from '../../assets/leftArrow.svg';
 import { css } from '@emotion/react';
 import { Row } from './Flex';
+import { useNavigate } from 'react-router-dom';
 
 const BackHeader = ({ title }: { title: string }) => {
+  const navigate = useNavigate();
   return (
     <Row
       css={css`
@@ -18,6 +20,7 @@ const BackHeader = ({ title }: { title: string }) => {
           position: absolute;
           left: 20px;
         `}
+        onClick={() => navigate(-1)}
       />
       <p
         css={css`
