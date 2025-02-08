@@ -18,7 +18,7 @@ const SearchBar = ({ value, onChange, placeholder = '검색어를 입력해주�
         border-radius: 20px;
         padding: 12px 16px;
         width: 90%;
-        margin: 12px auto;
+        margin: 0 auto;
         border: 1px solid #e1e1e1;
       `}
     >
