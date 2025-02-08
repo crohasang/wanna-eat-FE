@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import TagFilter from '../components/restaurantList/TagFilter';
 import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
+import MakeMuckpotButton from '../components/restaurantList/MakeMuckPotButton';
 
 const TAGS = ['가까운', '회식에 딱', '시끌벅적한', '분위기 있는'];
 
@@ -63,6 +64,7 @@ const RestaurantList = () => {
           상황별로 골라보기
         </h3>
         <TagFilter tags={TAGS} selectedTag={selectedTag} onSelectTag={setSelectedTag} />
+        <MakeMuckpotButton />
         <Col>
           {homeCards.map((homeCard, index) => (
             <HomeCard
