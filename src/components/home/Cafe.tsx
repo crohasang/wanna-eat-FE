@@ -115,6 +115,7 @@ const Cafe = () => {
         title='나의 회사 근처 카페'
         subtitle='먹을래님의 회사에서 가까운 카페에요.'
         isRightButton={true}
+        navigateTo='cafe'
       />
       <Col>
         {homeCards.map((homeCard, index) => (
