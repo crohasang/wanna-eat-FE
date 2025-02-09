@@ -187,21 +187,32 @@ const MuckpotJoinModal = ({ isOpen, onClose, muckpotData }: MuckpotJoinModalProp
           </Row>
         </Col>
 
-        <div css={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          `}
+        >
           <button
-            css={{ background: '#ff6666', color: 'white', padding: '12px', borderRadius: '20px' }}
+            css={css`
+              background: #ff6666;
+              color: white;
+              padding: 12px;
+              border-radius: 20px;
+            `}
             onClick={onClose}
           >
             예
           </button>
           <button
-            css={{
-              background: 'white',
-              color: '#ff6666',
-              padding: '12px',
-              borderRadius: '20px',
-              border: '1px solid #ff6666',
-            }}
+            css={css`
+              background: white;
+              color: #ff6666;
+              padding: 12px;
+              border-radius: 20px;
+              border: 1px solid #ff6666;
+            `}
             onClick={onClose}
           >
             아니요
