@@ -36,6 +36,15 @@ const Register = () => {
     setAllChecked(Object.values(newAgreements).every(value => value));
   };
 
+  const handleNext = () => {
+    if (!agreements.service || !agreements.privacy || !agreements.thirdParty) {
+      return;
+    }
+    navigate('/register/account');
+  };
+
+  const isAllAgreed = Object.values(agreements).every((value) => value);
+
   return (
     <Col
       css={css`
@@ -151,7 +160,7 @@ const Register = () => {
         right: 0;
         padding: 20px;
       `}>
-        <Button>다음</Button>
+        <Button onClick={handleNext} disabled={!isAllAgreed}>다음</Button>
       </div>
     </Col>
   );

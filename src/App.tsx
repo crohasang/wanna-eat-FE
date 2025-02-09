@@ -10,6 +10,7 @@ import Splash from './pages/Splash';
 import ServiceTerms from './pages/terms/ServiceTerms';
 import PrivacyPolicy from './pages/terms/PrivacyPolicy';
 import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
+import RegisterAccount from './pages/register/RegisterAccount';
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
         <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
         <Route path='/myPage' element={<MyPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register/account" element={<RegisterAccount />} />
         <Route path="/terms/service" element={<ServiceTerms />} />
         <Route path="/terms/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
