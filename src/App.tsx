@@ -10,6 +10,10 @@ import CafeList from './pages/CafeList';
 import Login from './pages/Login';
 import FindEmailAndPassword from './pages/FindEmailAndPassword';
 import Splash from './pages/Splash';
+import ServiceTerms from './pages/terms/ServiceTerms';
+import PrivacyPolicy from './pages/terms/PrivacyPolicy';
+import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
+import RegisterAccount from './pages/register/RegisterAccount';
 
 
 function App() {
@@ -78,11 +82,14 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
         <Route path='/myPage' element={<MyPage />} />
-        <Route path='/register' element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/register/account" element={<RegisterAccount />} />
+        <Route path="/terms/service" element={<ServiceTerms />} />
+        <Route path="/terms/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
         <Route path='/home' element={<Home />} />
         <Route path='/home/restaurant' element={<RestaurantList />} />
         <Route path='/home/cafe' element={<CafeList />} />
-
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}

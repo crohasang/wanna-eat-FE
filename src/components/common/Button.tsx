@@ -2,12 +2,13 @@
 import { css } from '@emotion/react';
 import { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> {
   width?: string;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-const Button = ({ width = '100%', children, ...props }: ButtonProps) => {
+const Button = ({ width = '100%', children, disabled, ...props }: ButtonProps) => {
   return (
     <button
       css={css`
@@ -19,10 +20,12 @@ const Button = ({ width = '100%', children, ...props }: ButtonProps) => {
         gap: 10px;
         align-self: stretch;
         border-radius: 20px;
-        border: 1px solid #F66;
-        background: #F66;
+        border: 1px solid ${disabled ? '#E1E1E1' : '#F66'};
+        background: ${disabled ? '#E1E1E1' : '#F66'};
         white-space: nowrap;
+        cursor: ${disabled ? 'not-allowed' : 'pointer'};
       `}
+      disabled={disabled}
       {...props}
     >
       <div css={css`
@@ -33,10 +36,9 @@ const Button = ({ width = '100%', children, ...props }: ButtonProps) => {
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        display: inline-block; 
-      `}
-      >
-      {children}
+        letter-spacing: -0.1px;
+      `}>
+        {children}
       </div>
     </button>
   );
