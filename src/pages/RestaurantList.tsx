@@ -6,7 +6,7 @@ import TagFilter from '../components/restaurantList/TagFilter';
 import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
 import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
-import MuckpotJoinModal from '../components/restaurantList/JoinMuckpotModal';
+import MuckpotJoinModal from '../components/restaurantList/MuckpotJoinModal';
 import { HomeCardList, TAGS, muckpotData } from '../constants/dummyData';
 
 const RestaurantList = () => {

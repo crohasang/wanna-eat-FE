@@ -6,13 +6,15 @@ import TagFilter from '../components/restaurantList/TagFilter';
 import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
 import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
-import { TAGS } from '../constants/dummyData';
+import { muckpotData, TAGS } from '../constants/dummyData';
 import { HomeCardList } from '../constants/dummyData';
+import MuckpotJoinModal from '../components/restaurantList/MuckpotJoinModal';
 
 const CafeList = () => {
   const [search, setSearch] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [homeCards, setHomeCards] = useState(HomeCardList);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleHomeCardFavorite = (index: number) => {
     setHomeCards((prev) =>
@@ -53,9 +55,15 @@ const CafeList = () => {
               imageUrl={homeCard.imageUrls || []}
               isFavorite={homeCard.isFavorite}
               onToggleFavorite={() => toggleHomeCardFavorite(index)}
+              onClick={() => setIsModalOpen(true)}
             />
           ))}
         </Col>
+        <MuckpotJoinModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          muckpotData={muckpotData}
+        />
       </Col>
     </>
   );

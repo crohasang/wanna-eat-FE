@@ -9,11 +9,14 @@ import {
   groupRestaurantData,
   visitedRestaurantData,
   HomeCardList,
+  muckpotData,
 } from '../../constants/dummyData';
+import MuckpotJoinModal from '../restaurantList/MuckpotJoinModal';
 
 const Restaurant = () => {
   const [groupRestaurants, setGroupRestaurants] = useState(groupRestaurantData);
   const [homeCards, setHomeCards] = useState(HomeCardList);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleGroupFavorite = (index: number) => {
     setGroupRestaurants((prev) =>
@@ -85,9 +88,15 @@ const Restaurant = () => {
             imageUrl={homeCard.imageUrls || []}
             isFavorite={homeCard.isFavorite}
             onToggleFavorite={() => toggleHomeCardFavorite(index)}
+            onClick={() => setIsModalOpen(true)}
           />
         ))}
       </Col>
+      <MuckpotJoinModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        muckpotData={muckpotData}
+      />
     </Col>
   );
 };

@@ -5,11 +5,18 @@ import StoreRanking from './StoreRanking';
 import TitleSection from './TitleSection';
 import VisitedRestaurant from './VisitedRestaurant';
 import HomeCard from './HomeCard';
-import { groupCafeData, visitedCafeData, HomeCardList } from '../../constants/dummyData';
+import {
+  groupCafeData,
+  visitedCafeData,
+  HomeCardList,
+  muckpotData,
+} from '../../constants/dummyData';
+import MuckpotJoinModal from '../restaurantList/MuckpotJoinModal';
 
 const Cafe = () => {
   const [groupCafes, setGroupCafes] = useState(groupCafeData);
   const [homeCards, setHomeCards] = useState(HomeCardList);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleGroupFavorite = (index: number) => {
     setGroupCafes((prev) =>
@@ -76,9 +83,15 @@ const Cafe = () => {
             imageUrl={homeCard.imageUrls || []}
             isFavorite={homeCard.isFavorite}
             onToggleFavorite={() => toggleHomeCardFavorite(index)}
+            onClick={() => setIsModalOpen(true)}
           />
         ))}
       </Col>
+      <MuckpotJoinModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        muckpotData={muckpotData}
+      />
     </Col>
   );
 };
