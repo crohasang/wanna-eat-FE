@@ -4,6 +4,9 @@ import Onboarding from './pages/Onboarding';
 import MyPage from './pages/MyPage';
 import Register from './pages/Register';
 import { requestForToken, onMessageListener } from './firebase/firebase';
+import Home from './pages/Home';
+import RestaurantList from './pages/RestaurantList';
+import CafeList from './pages/CafeList';
 import Login from './pages/Login';
 import FindEmailAndPassword from './pages/FindEmailAndPassword';
 import Splash from './pages/Splash';
@@ -11,6 +14,7 @@ import ServiceTerms from './pages/terms/ServiceTerms';
 import PrivacyPolicy from './pages/terms/PrivacyPolicy';
 import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
 import RegisterAccount from './pages/register/RegisterAccount';
+
 
 function App() {
 
@@ -26,7 +30,6 @@ function App() {
       Notification.requestPermission().then((permission) => {
         console.log('알림 허용이 되어있나요 :', permission);
         if (permission === 'granted') {
-          
           // FCM 토큰 요청
           requestForToken().then((token) => {
             if (token) {
@@ -44,17 +47,17 @@ function App() {
 
     // Foreground 메시지 수신 처리
     onMessageListener()
-      .then((payload : any) => {
+      .then((payload: any) => {
         // Foreground에서 알림 표시
         if (Notification.permission === 'granted') {
           new Notification(payload.notification.title, {
             body: payload.notification.body,
-            icon: '/logo.png'
+            icon: '/logo.png',
           });
         }
         if (Notification.permission === 'denied') {
-          console.log('알림이 거부되었어요!'); 
-                }
+          console.log('알림이 거부되었어요!');
+        }
       })
       .catch((err) => console.log('메시지 수신 에러:', err));
 
@@ -84,6 +87,9 @@ function App() {
         <Route path="/terms/service" element={<ServiceTerms />} />
         <Route path="/terms/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/home/restaurant' element={<RestaurantList />} />
+        <Route path='/home/cafe' element={<CafeList />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}
