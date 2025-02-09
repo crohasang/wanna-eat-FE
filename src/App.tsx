@@ -7,6 +7,9 @@ import { requestForToken, onMessageListener } from './firebase/firebase';
 import Login from './pages/Login';
 import FindEmailAndPassword from './pages/FindEmailAndPassword';
 import Splash from './pages/Splash';
+import ServiceTerms from './pages/terms/ServiceTerms';
+import PrivacyPolicy from './pages/terms/PrivacyPolicy';
+import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
 
 function App() {
 
@@ -75,7 +78,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
         <Route path='/myPage' element={<MyPage />} />
-        <Route path='/register' element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/terms/service" element={<ServiceTerms />} />
+        <Route path="/terms/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
         <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}
