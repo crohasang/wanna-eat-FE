@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import TagFilter from '../components/restaurantList/TagFilter';
 import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
-import MakeMuckpotButton from '../components/restaurantList/MakeMuckPotButton';
+import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
 
 const TAGS = ['가까운', '회식에 딱', '시끌벅적한', '분위기 있는'];
 
