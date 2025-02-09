@@ -88,7 +88,7 @@ const Restaurant = () => {
             imageUrl={homeCard.imageUrls || []}
             isFavorite={homeCard.isFavorite}
             onToggleFavorite={() => toggleHomeCardFavorite(index)}
-            onClick={() => setIsModalOpen(true)}
+            onOpenModal={() => setIsModalOpen(true)}
           />
         ))}
       </Col>
