@@ -4,6 +4,7 @@ import starOutlinedImg from '../../assets/home/starOutlined.svg';
 import { css } from '@emotion/react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect } from 'react';
+import TagList from './TagList';
 
 interface HomeCardProps {
   name: string;
@@ -13,6 +14,7 @@ interface HomeCardProps {
   imageUrl?: string[];
   isFavorite?: boolean;
   onToggleFavorite: () => void;
+  onClick: () => void;
 }
 
 const HomeCard = ({
@@ -23,6 +25,7 @@ const HomeCard = ({
   imageUrl = [],
   isFavorite = false,
   onToggleFavorite,
+  onClick,
 }: HomeCardProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
@@ -108,27 +111,8 @@ const HomeCard = ({
           {address}
         </p>
       </Row>
-      <div
-        css={css`
-          display: flex;
-          gap: 10px;
-        `}
-      >
-        {tag.map((t, index) => (
-          <span
-            key={index}
-            css={css`
-              background: rgba(255, 102, 102, 0.1);
-              color: #f66;
-              padding: 4px 8px;
-              border-radius: 8px;
-              font-size: 12px;
-            `}
-          >
-            {t}
-          </span>
-        ))}
-      </div>
+      <TagList tags={tag} />
+
       <Row
         css={css`
           justify-content: space-between;
@@ -155,6 +139,7 @@ const HomeCard = ({
             border: solid 1px #e1e1e1;
             background-color: #fff;
           `}
+          onClick={onClick}
         >
           현재 먹팟 참여
         </button>
