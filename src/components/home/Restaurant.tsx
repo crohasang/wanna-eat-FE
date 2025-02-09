@@ -12,11 +12,12 @@ import {
   muckpotData,
 } from '../../constants/dummyData';
 import MuckpotJoinModal from '../restaurantList/MuckpotJoinModal';
+import MuckpotCreateModal from '../restaurantList/MuckpotCreateModal';
 
 const Restaurant = () => {
   const [groupRestaurants, setGroupRestaurants] = useState(groupRestaurantData);
   const [homeCards, setHomeCards] = useState(HomeCardList);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalState, setModalState] = useState<'join' | 'create' | null>(null);
 
   const toggleGroupFavorite = (index: number) => {
     setGroupRestaurants((prev) =>
@@ -88,15 +89,24 @@ const Restaurant = () => {
             imageUrl={homeCard.imageUrls || []}
             isFavorite={homeCard.isFavorite}
             onToggleFavorite={() => toggleHomeCardFavorite(index)}
-            onOpenModal={() => setIsModalOpen(true)}
+            onOpenModal={(type) => setModalState(type)}
           />
         ))}
       </Col>
-      <MuckpotJoinModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        muckpotData={muckpotData}
-      />
+      {modalState === 'join' && (
+        <MuckpotJoinModal
+          isOpen={true}
+          onClose={() => setModalState(null)}
+          muckpotData={muckpotData}
+        />
+      )}
+      {modalState === 'create' && (
+        <MuckpotCreateModal
+          isOpen={true}
+          onClose={() => setModalState(null)}
+          onCreate={() => console.log('먹팟 생성')}
+        />
+      )}
     </Col>
   );
 };
