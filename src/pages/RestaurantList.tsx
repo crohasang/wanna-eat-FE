@@ -7,44 +7,7 @@ import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
 import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
 import MuckpotJoinModal from '../components/restaurantList/JoinMuckpotModal';
-
-const TAGS = ['가까운', '회식에 딱', '시끌벅적한', '분위기 있는'];
-
-const HomeCardList = [
-  {
-    name: '성수노루',
-    category: '곱창, 막창, 양',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['시끌벅적한', '대규모', '회식에 딱'],
-    isFavorite: true,
-  },
-  {
-    name: '건대치킨',
-    category: '치킨',
-    address: '서울 광진구 능동로 100',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    isFavorite: false,
-  },
-];
-
-const muckpotData = {
-  id: 1,
-  title: '그로스 팀 번개 회식',
-  date: '2025.01.01',
-  time: '오후 06:00',
-  members: ['먹을래', '먹을래', '먹을래', '먹을래', '먹을래'],
-  restaurant: '성수노루',
-  tags: ['시끌벅적한', '대규모', '회식에 딱'],
-  category: '곱창, 막창, 양',
-  address: '서울 성동구 아차산로 110 1층',
-  message: '회식 가자! 제가 쏩니다',
-};
+import { HomeCardList, TAGS, muckpotData } from '../constants/dummyData';
 
 const RestaurantList = () => {
   const [search, setSearch] = useState('');

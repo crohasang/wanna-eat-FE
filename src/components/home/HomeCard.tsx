@@ -14,7 +14,7 @@ interface HomeCardProps {
   imageUrl?: string[];
   isFavorite?: boolean;
   onToggleFavorite: () => void;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const HomeCard = ({

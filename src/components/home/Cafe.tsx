@@ -5,59 +5,7 @@ import StoreRanking from './StoreRanking';
 import TitleSection from './TitleSection';
 import VisitedRestaurant from './VisitedRestaurant';
 import HomeCard from './HomeCard';
-
-const groupCafeData = [
-  {
-    ranking: 1,
-    name: '카페데이지크',
-    category: '빵, 케이크',
-    openInfo: '영업 중 | 22:00에 라스트오더',
-    isFavorite: true,
-  },
-  {
-    ranking: 2,
-    name: '카페 롱',
-    category: '스콘, 크로플',
-    openInfo: '오늘 휴무',
-    isFavorite: false,
-  },
-  {
-    ranking: 3,
-    name: '카페인 중독',
-    category: '와플',
-    openInfo: '영업 종료 ',
-    isFavorite: false,
-  },
-];
-
-const visitedCafeData = {
-  name: '카페데이지크',
-  category: '빵, 케이크',
-};
-
-const HomeCardList = [
-  {
-    name: '카페데이지크',
-    category: '빵, 케이크',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['개인', '커피챗하기 좋은', '테이크아웃'],
-    isFavorite: true,
-  },
-  {
-    name: '카페데이지크',
-    category: '빵, 케이크',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['개인', '커피챗하기 좋은', '테이크아웃'],
-    isFavorite: false,
-  },
-];
+import { groupCafeData, visitedCafeData, HomeCardList } from '../../constants/dummyData';
 
 const Cafe = () => {
   const [groupCafes, setGroupCafes] = useState(groupCafeData);
