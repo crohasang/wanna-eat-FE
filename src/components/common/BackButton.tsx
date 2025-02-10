@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { IoChevronBack } from 'react-icons/io5';
+import backChevron from '../../assets/common/backChevron.svg';
 
 interface BackButtonProps {
   to?: string;
@@ -9,34 +9,26 @@ interface BackButtonProps {
   className?: string;
 }
 
-const buttonStyle = css`
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  color: #333;
-  text-decoration: none;
-  font-size: 24px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
+
 
 const BackButton = ({ to, onClick, className }: BackButtonProps) => {
   if (to) {
     return (
-      <Link to={to} css={buttonStyle} className={className}>
-        <IoChevronBack />
+      <Link to={to} className={className}>
+        <img src={backChevron} alt="backChevron" css={css`
+          width: 7px;
+          height: 12px;
+        `} />
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} css={buttonStyle} className={className}>
-      <IoChevronBack />
+    <button onClick={onClick} className={className}>
+      <img src={backChevron} alt="backChevron" css={css`
+          width: 7px;
+          height: 12px;
+        `} />
     </button>
   );
 };
