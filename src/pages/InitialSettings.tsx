@@ -10,6 +10,7 @@ import SetGenderCard from '../components/initialSettings/SetGenderCard';
 import Button from '../components/common/Button';
 import SetDepartmentCard from '../components/initialSettings/SetDepartmentCard';
 import SetRestaurantTypeCard from '../components/initialSettings/SetRestaurantTypeCard';
+import SetRestaurantFeatureCard from '../components/initialSettings/SetRestaurantFeatureCard';
 
 const InitialSettings = () => {
   const [step, setStep] = useState(1);
@@ -144,6 +145,24 @@ const InitialSettings = () => {
               `}
             >
               <SetRestaurantTypeCard onValidationChange={setIsCurrentStepValid} />
+            </motion.div>
+          )}
+          {step === 5 && (
+            <motion.div
+              key="restaurant-feature-card"
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={slideTransition}
+              css={css`
+                position: absolute;
+                width: 100%;
+                z-index: ${step === 5 ? 2 : 1};
+              `}
+            >
+              <SetRestaurantFeatureCard onValidationChange={setIsCurrentStepValid} />
             </motion.div>
           )}
         </AnimatePresence>
