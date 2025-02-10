@@ -92,3 +92,10 @@ export const muckpotData = {
   address: '서울 성동구 아차산로 110 1층',
   message: '회식 가자! 제가 쏩니다',
 };
+
+export const groupConfrimData = {
+  name: '성수노루',
+  tags: ['시끌벅적한', '대규모', '회식에 딱'],
+  category: '곱창, 막창, 양',
+  address: '서울 성동구 아차산로 110 1층',
+};
