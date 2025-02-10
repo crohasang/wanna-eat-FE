@@ -105,7 +105,7 @@ const InitialSettings = () => {
                 z-index: ${step === 2 ? 2 : 1};
               `}
             >
-              <SetGenderCard />
+              <SetGenderCard onValidationChange={setIsCurrentStepValid} />
             </motion.div>
           )}
         </AnimatePresence>
