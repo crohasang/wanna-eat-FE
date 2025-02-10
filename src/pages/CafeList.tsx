@@ -6,37 +6,15 @@ import TagFilter from '../components/restaurantList/TagFilter';
 import SearchBar from '../components/common/SearchBar';
 import HomeCard from '../components/home/HomeCard';
 import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
-
-const TAGS = ['가까운', '프렌차이즈', '개인', '커피챗하기 좋은', '테이블이 네모'];
-
-const HomeCardList = [
-  {
-    name: '카페데이지크',
-    category: '빵, 케이크',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['개인', '커피챗하기 좋은', '테이크아웃'],
-    isFavorite: true,
-  },
-  {
-    name: '카페데이지크',
-    category: '빵, 케이크',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['개인', '커피챗하기 좋은', '테이크아웃'],
-    isFavorite: false,
-  },
-];
+import { muckpotData, TAGS } from '../constants/dummyData';
+import { HomeCardList } from '../constants/dummyData';
+import MuckpotJoinModal from '../components/restaurantList/MuckpotJoinModal';
 
 const CafeList = () => {
   const [search, setSearch] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [homeCards, setHomeCards] = useState(HomeCardList);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleHomeCardFavorite = (index: number) => {
     setHomeCards((prev) =>
@@ -77,9 +55,15 @@ const CafeList = () => {
               imageUrl={homeCard.imageUrls || []}
               isFavorite={homeCard.isFavorite}
               onToggleFavorite={() => toggleHomeCardFavorite(index)}
+              onClick={() => setIsModalOpen(true)}
             />
           ))}
         </Col>
+        <MuckpotJoinModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          muckpotData={muckpotData}
+        />
       </Col>
     </>
   );
