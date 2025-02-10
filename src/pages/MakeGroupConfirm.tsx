@@ -4,8 +4,10 @@ import { Col } from '../components/commons/Flex';
 import TagList from '../components/home/TagList';
 import { groupConfrimData } from '../constants/dummyData';
 import Button from '../components/common/Button';
+import { useNavigate } from 'react-router-dom';
 
 const MakeGroupConfirm = () => {
+  const navigate = useNavigate();
   return (
     <Col
       css={css`
@@ -69,7 +71,7 @@ const MakeGroupConfirm = () => {
           bottom: 10px;
         `}
       >
-        <Button children={'다음'} />
+        <Button children={'다음'} onClick={() => navigate('/group/make')} />
       </div>
     </Col>
   );
