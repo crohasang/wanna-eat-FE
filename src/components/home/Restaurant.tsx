@@ -5,62 +5,18 @@ import StoreRanking from './StoreRanking';
 import TitleSection from './TitleSection';
 import VisitedRestaurant from './VisitedRestaurant';
 import HomeCard from './HomeCard';
-
-const groupRestaurantData = [
-  {
-    ranking: 1,
-    name: '성수노루',
-    category: '곱창, 막창, 양',
-    openInfo: '영업 중 | 17:00에 브레이크타임',
-    isFavorite: true,
-  },
-  {
-    ranking: 2,
-    name: '건대치킨',
-    category: '치킨',
-    openInfo: '오늘 휴무',
-    isFavorite: false,
-  },
-  {
-    ranking: 3,
-    name: '양꼬치미쳤다',
-    category: '양꼬치, 라면',
-    openInfo: '영업 종료 ',
-    isFavorite: false,
-  },
-];
-
-const visitedRestaurantData = {
-  name: '성수노루',
-  category: '곱창, 막창, 양',
-};
-
-const HomeCardList = [
-  {
-    name: '성수노루',
-    category: '곱창, 막창, 양',
-    address: '서울 성동구 아차산로 110 1층',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    tag: ['시끌벅적한', '대규모', '회식에 딱'],
-    isFavorite: true,
-  },
-  {
-    name: '건대치킨',
-    category: '치킨',
-    address: '서울 광진구 능동로 100',
-    imageUrls: [
-      'https://www.theborn.co.kr/wp-content/uploads/2017/06/%EC%83%88%EB%A7%88%EC%9D%84%EC%8B%9D%EB%8B%B9_img00.jpg',
-    ],
-    isFavorite: false,
-  },
-];
+import {
+  groupRestaurantData,
+  visitedRestaurantData,
+  HomeCardList,
+  muckpotData,
+} from '../../constants/dummyData';
+import MuckpotJoinModal from '../restaurantList/MuckpotJoinModal';
 
 const Restaurant = () => {
   const [groupRestaurants, setGroupRestaurants] = useState(groupRestaurantData);
   const [homeCards, setHomeCards] = useState(HomeCardList);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleGroupFavorite = (index: number) => {
     setGroupRestaurants((prev) =>
@@ -132,9 +88,15 @@ const Restaurant = () => {
             imageUrl={homeCard.imageUrls || []}
             isFavorite={homeCard.isFavorite}
             onToggleFavorite={() => toggleHomeCardFavorite(index)}
+            onClick={() => setIsModalOpen(true)}
           />
         ))}
       </Col>
+      <MuckpotJoinModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        muckpotData={muckpotData}
+      />
     </Col>
   );
 };
