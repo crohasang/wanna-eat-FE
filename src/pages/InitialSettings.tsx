@@ -8,6 +8,7 @@ import InitialSettingsHeader from '../components/initialSettings/InitialSettings
 import SetNameCard from '../components/initialSettings/SetNameCard';
 import SetGenderCard from '../components/initialSettings/SetGenderCard';
 import Button from '../components/common/Button';
+import SetDepartmentCard from '../components/initialSettings/SetDepartmentCard';
 
 const InitialSettings = () => {
   const [step, setStep] = useState(1);
@@ -106,6 +107,24 @@ const InitialSettings = () => {
               `}
             >
               <SetGenderCard onValidationChange={setIsCurrentStepValid} />
+            </motion.div>
+          )}
+          {step === 3 && (
+            <motion.div
+              key="department-card"
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={slideTransition}
+              css={css`
+                position: absolute;
+                width: 100%;
+                z-index: ${step === 3 ? 2 : 1};
+              `}
+            >
+              <SetDepartmentCard onValidationChange={setIsCurrentStepValid} />
             </motion.div>
           )}
         </AnimatePresence>
