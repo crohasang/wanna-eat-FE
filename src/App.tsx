@@ -16,6 +16,7 @@ import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
 import RegisterAccount from './pages/register/RegisterAccount';
 import Group from './pages/Group';
 import MakeGroup from './pages/MakeGroup';
+import MakeGroupConfirm from './pages/MakeGroupConfirm';
 
 function App() {
   const [showSplash, setShowSplash] = useState(() => {
@@ -88,6 +89,7 @@ function App() {
             <Route path='/home/cafe' element={<CafeList />} />
             <Route path='/group' element={<Group />} />
             <Route path='/group/make' element={<MakeGroup />} />
+            <Route path='/group/confirm' element={<MakeGroupConfirm />} />
             <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}
