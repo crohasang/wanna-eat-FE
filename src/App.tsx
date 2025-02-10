@@ -14,14 +14,14 @@ import ServiceTerms from './pages/terms/ServiceTerms';
 import PrivacyPolicy from './pages/terms/PrivacyPolicy';
 import ThirdPartyPolicy from './pages/terms/ThirdPartyPolicy';
 import RegisterAccount from './pages/register/RegisterAccount';
-
+import Group from './pages/Group';
+import MakeGroup from './pages/MakeGroup';
 
 function App() {
-
   const [showSplash, setShowSplash] = useState(() => {
     const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
     return !hasSeenSplash;
-  })
+  });
 
   useEffect(() => {
     // 알림 권한 요청
@@ -73,24 +73,22 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>        
+      <Routes>
         {showSplash ? (
-          <Route path="*" element={<Splash />} />
+          <Route path='*' element={<Splash />} />
         ) : (
           <>
-        <Route path='/onboarding' element={<Onboarding />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
-        <Route path='/myPage' element={<MyPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/register/account" element={<RegisterAccount />} />
-        <Route path="/terms/service" element={<ServiceTerms />} />
-        <Route path="/terms/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/home/restaurant' element={<RestaurantList />} />
-        <Route path='/home/cafe' element={<CafeList />} />
-        <Route path='/' element={<Navigate to='/onboarding' replace />} />
+            <Route path='/onboarding' element={<Onboarding />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
+            <Route path='/myPage' element={<MyPage />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/home/restaurant' element={<RestaurantList />} />
+            <Route path='/home/cafe' element={<CafeList />} />
+            <Route path='/group' element={<Group />} />
+            <Route path='/group/make' element={<MakeGroup />} />
+            <Route path='/' element={<Navigate to='/onboarding' replace />} />
           </>
         )}
       </Routes>
