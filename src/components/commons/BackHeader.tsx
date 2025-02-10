@@ -4,11 +4,12 @@ import { Row, Col } from './Flex';
 import { useNavigate } from 'react-router-dom';
 
 interface BackHeaderProps {
-  title: string;
+  firstTitle: string;
+  secondTitle?: string;
   alignLeft?: boolean;
 }
 
-const BackHeader = ({ title, alignLeft = false }: BackHeaderProps) => {
+const BackHeader = ({ firstTitle, secondTitle, alignLeft = false }: BackHeaderProps) => {
   const navigate = useNavigate();
 
   return alignLeft ? (
@@ -29,13 +30,28 @@ const BackHeader = ({ title, alignLeft = false }: BackHeaderProps) => {
       />
       <p
         css={css`
-          font-size: 20px;
-          font-weight: 500;
-          margin: 0;
+          font-size: 24px;
+          font-weight: 700;
+          margin: 6px 0 0 0;
+          white-space: pre-line;
+          word-wrap: break-word;
         `}
       >
-        {title}
+        {firstTitle}
       </p>
+      {secondTitle && (
+        <p
+          css={css`
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            white-space: pre-line;
+            word-wrap: break-word;
+          `}
+        >
+          {secondTitle}
+        </p>
+      )}
     </Col>
   ) : (
     <Row
@@ -55,15 +71,32 @@ const BackHeader = ({ title, alignLeft = false }: BackHeaderProps) => {
         `}
         onClick={() => navigate(-1)}
       />
-      <p
+      <Col
         css={css`
-          font-size: 20px;
-          font-weight: 500;
-          margin: 0;
+          align-items: center;
         `}
       >
-        {title}
-      </p>
+        <p
+          css={css`
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+          `}
+        >
+          {firstTitle}
+        </p>
+        {secondTitle && (
+          <p
+            css={css`
+              font-size: 20px;
+              font-weight: 500;
+              margin: 0;
+            `}
+          >
+            {secondTitle}
+          </p>
+        )}
+      </Col>
     </Row>
   );
 };

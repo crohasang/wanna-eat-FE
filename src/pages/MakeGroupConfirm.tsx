@@ -4,7 +4,11 @@ import { Col } from '../components/commons/Flex';
 const MakeGroupConfirm = () => {
   return (
     <Col>
-      <BackHeader title='밥 먹언?' alignLeft={true} />
+      <BackHeader
+        firstTitle='멋팟을 생성할 식당/카페 '
+        secondTitle='정보를 확인해주세요.'
+        alignLeft={true}
+      />
     </Col>
   );
 };
