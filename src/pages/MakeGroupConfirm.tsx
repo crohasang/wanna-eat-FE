@@ -12,7 +12,6 @@ const MakeGroupConfirm = () => {
     <Col
       css={css`
         align-items: center;
-        padding: 12px 0;
       `}
     >
       <BackHeader
