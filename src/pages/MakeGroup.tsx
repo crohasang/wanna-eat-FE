@@ -7,7 +7,7 @@ import NotificationStep from '../components/makeGroup/NotificationStep';
 import ConfirmStep from '../components/makeGroup/ConfirmStep';
 import CompleteStep from '../components/makeGroup/CompleteStep';
 
-type GroupData = {
+export type GroupData = {
   title: string;
   date: string;
   time: string;

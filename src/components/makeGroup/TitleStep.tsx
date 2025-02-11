@@ -3,16 +3,16 @@ import { Col } from '../commons/Flex';
 import Button from '../common/Button';
 import BackHeader from '../commons/BackHeader';
 import { css } from '@emotion/react';
+import { GroupData } from '../../pages/MakeGroup';
 
 interface TitleStepProps {
-  data: { title: string };
-  updateData: (field: string, value: string) => void;
+  data: GroupData;
+  updateData: (field: keyof GroupData, value: string) => void; // field 타입 수정
   nextStep: () => void;
 }
 
 const TitleStep = ({ data, updateData, nextStep }: TitleStepProps) => {
   const [title, setTitle] = useState<string>(data.title);
-
   const isButtonDisabled = title.trim().length === 0;
 
   return (
