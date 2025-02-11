@@ -19,6 +19,7 @@ const BackHeader = ({ firstTitle, secondTitle, alignLeft = false }: BackHeaderPr
         align-items: flex-start;
         padding: 12px 20px;
         gap: 8px;
+        margin-top: 12px;
       `}
     >
       <img
@@ -32,7 +33,7 @@ const BackHeader = ({ firstTitle, secondTitle, alignLeft = false }: BackHeaderPr
         css={css`
           font-size: 24px;
           font-weight: 700;
-          margin: 6px 0 0 0;
+          margin: 12px 0 0 0;
           white-space: pre-line;
           word-wrap: break-word;
         `}
