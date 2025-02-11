@@ -1,26 +1,68 @@
 import { useState } from 'react';
+import { Col } from '../commons/Flex';
+import Button from '../common/Button';
+import BackHeader from '../commons/BackHeader';
+import { css } from '@emotion/react';
 
-const TitleStep = ({ data, updateData, nextStep }) => {
-  const [title, setTitle] = useState(data.title);
+interface TitleStepProps {
+  data: { title: string };
+  updateData: (field: string, value: string) => void;
+  nextStep: () => void;
+}
+
+const TitleStep = ({ data, updateData, nextStep }: TitleStepProps) => {
+  const [title, setTitle] = useState<string>(data.title);
+
+  const isButtonDisabled = title.trim().length === 0;
 
   return (
-    <div>
-      <h2>먹팟 제목을 입력해주세요.</h2>
+    <Col
+      css={css`
+        align-items: center;
+      `}
+    >
+      <BackHeader firstTitle='먹팟 제목을 입력해주세요.' alignLeft />
+
       <input
         type='text'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder='먹팟 제목'
+        css={css`
+          width: 90%;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          border-bottom: 2px solid #e1e1e1;
+          outline: none;
+          transition: border-color 0.3s;
+          margin-top: 12px;
+          &:focus {
+            border-bottom: 2px solid #f66;
+          }
+        `}
       />
-      <button
-        onClick={() => {
-          updateData('title', title);
-          nextStep();
-        }}
+
+      <div
+        css={css`
+          width: 90%;
+          display: flex;
+          justify-content: center;
+          position: fixed;
+          bottom: 10px;
+        `}
       >
-        다음
-      </button>
-    </div>
+        <Button
+          onClick={() => {
+            updateData('title', title);
+            nextStep();
+          }}
+          disabled={isButtonDisabled}
+        >
+          다음
+        </Button>
+      </div>
+    </Col>
   );
 };
 
