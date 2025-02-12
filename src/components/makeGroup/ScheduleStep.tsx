@@ -13,7 +13,7 @@ interface ScheduleStepProps {
 }
 
 const ScheduleStep = ({ data, updateData, nextStep, prevStep }: ScheduleStepProps) => {
-  const [date, setDate] = useState<string>(data.date);
+  const [date, setDate] = useState<string>(data.date || new Date().toISOString().split('T')[0]);
   const [time, setTime] = useState<string>(data.time);
   const isButtonDisabled = date.trim().length === 0 || time.trim().length === 0;
 

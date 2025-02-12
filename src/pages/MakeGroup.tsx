@@ -17,19 +17,21 @@ export type GroupData = {
 
 const MakeGroup = () => {
   const [step, setStep] = useState(1);
+  const today = new Date().toISOString().split('T')[0];
   const [groupData, setGroupData] = useState<GroupData>({
     title: '',
-    date: '',
+    date: today,
     time: '',
     participants: [],
     message: '',
   });
+  console.log(groupData);
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
 
   const updateGroupData = (field: keyof GroupData, value: string | string[]) => {
-    setGroupData({ ...groupData, [field]: value });
+    setGroupData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
