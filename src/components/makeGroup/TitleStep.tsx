@@ -7,7 +7,7 @@ import { GroupData } from '../../pages/MakeGroup';
 
 interface TitleStepProps {
   data: GroupData;
-  updateData: (field: keyof GroupData, value: string) => void; // field 타입 수정
+  updateData: (field: keyof GroupData, value: string) => void;
   nextStep: () => void;
 }
 
