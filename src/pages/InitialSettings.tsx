@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { Col } from '../components/commons/Flex';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import InitialSettingsHeader from '../components/initialSettings/InitialSettingsHeader';
 import SetNameCard from '../components/initialSettings/SetNameCard';
@@ -16,8 +17,9 @@ import SetDrinkFeatureCard from '../components/initialSettings/SetDrinkFeatureCa
 
 const InitialSettings = () => {
   const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState(0);
   const [isCurrentStepValid, setIsCurrentStepValid] = useState(false);
-  const [direction, setDirection] = useState(0); // 1: 직진, -1: 후진
+  const navigate = useNavigate();
 
   const handleBack = () => {
     if (step > 1) {
@@ -26,9 +28,13 @@ const InitialSettings = () => {
     }
   };
 
-  const handleNextStep = () => {
+  const handleNextClick = () => {
+    if (step === 7) {
+      navigate('/setting-finished');
+      return;
+    }
     setDirection(1);
-    setStep(step + 1);
+    setStep(prev => prev + 1);
     setIsCurrentStepValid(false);
   };
 
@@ -206,14 +212,18 @@ const InitialSettings = () => {
         </AnimatePresence>
       </div>
       <div css={css`
-          margin: 0 20px;
-          padding: 40px 0 20px;
-        `}>
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 360px;
+      `}>
         <Button
-          onClick={handleNextStep}
+          onClick={handleNextClick}
           disabled={!isCurrentStepValid}
         >
-          다음
+          {step === 7 ? '완료' : '다음'}
         </Button>
       </div>
     </Col>
