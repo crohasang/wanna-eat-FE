@@ -3,19 +3,19 @@ import { css } from '@emotion/react';
 import { useState, useEffect } from 'react';
 import InitialSettingsCardContainer from './InitialSettingsCardContainer';
 
-interface SetRestaurantFeatureCardProps {
+interface SetDrinkFeatureCardProps {
   onValidationChange: (isValid: boolean) => void;
 }
 
-const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCardProps) => {
+const SetDrinkFeatureCard = ({ onValidationChange }: SetDrinkFeatureCardProps) => {
   const [selectedAtmosphere, setSelectedAtmosphere] = useState<string>('');
-  const [selectedMealType, setSelectedMealType] = useState<string>('');
+  const [selectedDrinkType, setSelectedDrinkType] = useState<string>('');
   const [selectedSize, setSelectedSize] = useState<string>('');
 
   useEffect(() => {
-    const valid = selectedAtmosphere !== '' && selectedMealType !== '' && selectedSize !== '';
+    const valid = selectedAtmosphere !== '' && selectedDrinkType !== '' && selectedSize !== '';
     onValidationChange(valid);
-  }, [selectedAtmosphere, selectedMealType, selectedSize, onValidationChange]);
+  }, [selectedAtmosphere, selectedDrinkType, selectedSize, onValidationChange]);
 
   const buttonContainerStyle = css`
     margin-top: 10px;
@@ -62,7 +62,7 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
         font-weight: 400;
         line-height: normal;
         letter-spacing: -0.08px;
-      `}>Step 5/7</div>
+      `}>Step 7/7</div>
       <div css={css`
         margin-top: 20px;
         color: #000;
@@ -73,9 +73,9 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
         font-weight: 600;
         line-height: normal;
         letter-spacing: -0.125px;
-      `}>선호하는 식당 분위기를<br/>선택해주세요.</div>
+      `}>선호하는 카페 음료의 특징을<br/>선택해주세요.</div>
 
-<div css={css`
+      <div css={css`
         margin-top: 10px;
         color: #000;
         text-align: center;
@@ -87,10 +87,9 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
         letter-spacing: -0.09px;
 `}>* 항목별로 한 개씩만 선택 가능</div>
 
-
-      <div css={labelStyle}>분위기</div>
+      <div css={labelStyle}>달달한/상큼한</div>
       <div css={buttonContainerStyle}>
-        {['시끌벅적한', '차분한'].map((type) => (
+        {['달달한', '상큼한'].map((type) => (
           <button
             key={type}
             css={buttonStyle(selectedAtmosphere === type)}
@@ -101,22 +100,22 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
         ))}
       </div>
 
-      <div css={labelStyle}>식사류</div>
+      <div css={labelStyle}>시원한/따뜻한</div>
       <div css={buttonContainerStyle}>
-        {['주류 위주', '식사 위주'].map((type) => (
+        {['시원한', '따뜻한'].map((type) => (
           <button
             key={type}
-            css={buttonStyle(selectedMealType === type)}
-            onClick={() => setSelectedMealType(type)}
+            css={buttonStyle(selectedDrinkType === type)}
+            onClick={() => setSelectedDrinkType(type)}
           >
             {type}
           </button>
         ))}
       </div>
 
-      <div css={labelStyle}>식당 규모</div>
+      <div css={labelStyle}>카페인/디카페인</div>
       <div css={buttonContainerStyle}>
-        {['소규모(1-10)', '대규모(11이상)'].map((type) => (
+        {['카페인', '디카페인'].map((type) => (
           <button
             key={type}
             css={buttonStyle(selectedSize === type)}
@@ -130,4 +129,4 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
   );
 };
 
-export default SetRestaurantFeatureCard;
+export default SetDrinkFeatureCard;
