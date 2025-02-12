@@ -7,10 +7,12 @@ interface BackHeaderProps {
   firstTitle: string;
   secondTitle?: string;
   alignLeft?: boolean;
+  onBack?: () => void;
 }
 
-const BackHeader = ({ firstTitle, secondTitle, alignLeft = false }: BackHeaderProps) => {
+const BackHeader = ({ firstTitle, secondTitle, alignLeft = false, onBack }: BackHeaderProps) => {
   const navigate = useNavigate();
+  const handleBack = onBack || (() => navigate(-1));
 
   return alignLeft ? (
     <Col
@@ -27,7 +29,7 @@ const BackHeader = ({ firstTitle, secondTitle, alignLeft = false }: BackHeaderPr
         css={css`
           cursor: pointer;
         `}
-        onClick={() => navigate(-1)}
+        onClick={handleBack}
       />
       <p
         css={css`
