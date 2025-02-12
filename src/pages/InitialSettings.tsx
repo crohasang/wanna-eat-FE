@@ -11,6 +11,7 @@ import Button from '../components/common/Button';
 import SetDepartmentCard from '../components/initialSettings/SetDepartmentCard';
 import SetRestaurantTypeCard from '../components/initialSettings/SetRestaurantTypeCard';
 import SetRestaurantFeatureCard from '../components/initialSettings/SetRestaurantFeatureCard';
+import SetCafeBrandCard from '../components/initialSettings/SetCafeBrandCard';
 
 const InitialSettings = () => {
   const [step, setStep] = useState(1);
@@ -163,6 +164,24 @@ const InitialSettings = () => {
               `}
             >
               <SetRestaurantFeatureCard onValidationChange={setIsCurrentStepValid} />
+            </motion.div>
+          )}
+          {step === 6 && (
+            <motion.div
+              key="cafe-brand-card"
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={slideTransition}
+              css={css`
+                position: absolute;
+                width: 100%;
+                z-index: ${step === 6 ? 2 : 1};
+              `}
+            >
+              <SetCafeBrandCard onValidationChange={setIsCurrentStepValid} />
             </motion.div>
           )}
         </AnimatePresence>
