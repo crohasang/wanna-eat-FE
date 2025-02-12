@@ -138,3 +138,10 @@ export const participantsList = [
     img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
   },
 ];
+
+export const messages = [
+  '커피 먹을 사람?',
+  '점심 먹을 사람?',
+  '오늘 커피는 제가 쏩니다!',
+  '회식 가자! 제가 쏩니다',
+];
