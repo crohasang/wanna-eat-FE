@@ -99,3 +99,42 @@ export const groupConfrimData = {
   category: '곱창, 막창, 양',
   address: '서울 성동구 아차산로 110 1층',
 };
+
+export const participantsList = [
+  {
+    name: '먹을래',
+    gender: '여성',
+    team: 'Tech 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+  {
+    name: 'ㅁㅁㅁ',
+    gender: '남성',
+    team: 'Tech 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+  {
+    name: '김슥얼',
+    gender: '여성',
+    team: '물류 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+  {
+    name: '김두루미',
+    gender: '남성',
+    team: '경영지원 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+  {
+    name: '뱀',
+    gender: '여성',
+    team: 'CX 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+  {
+    name: '호랑이',
+    gender: '여성',
+    team: '그로스 팀',
+    img: 'https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg',
+  },
+];
