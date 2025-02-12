@@ -22,12 +22,14 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
     display: flex;
     justify-content: center;
     gap: 10px;
+    padding: 0 20px;
   `;
 
   const buttonStyle = (isSelected: boolean) => css`
     display: flex;
-    width: 149px;
-    padding: 20px 58.5px;
+    flex: 1;
+    max-width: 140px;
+    padding: 15px 0;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -37,6 +39,7 @@ const SetRestaurantFeatureCard = ({ onValidationChange }: SetRestaurantFeatureCa
     color: ${isSelected ? '#fff' : '#000'};
     white-space: nowrap;
     cursor: pointer;
+    font-size: 14px;
   `;
 
   const labelStyle = css`

@@ -2,6 +2,7 @@
 import { css } from "@emotion/react"
 import { Row } from "../commons/Flex"
 import leftArrow from "../../assets/leftArrow.svg"
+import { useNavigate } from "react-router-dom"
 
 interface InitialSettingsHeaderProps {
     step: number;
@@ -10,6 +11,11 @@ interface InitialSettingsHeaderProps {
 
 const InitialSettingsHeader = ({ step, onBack }: InitialSettingsHeaderProps) => {
   const progress = (step / 7) * 100;
+  const navigate = useNavigate();
+
+  const handleSkip = () => {
+    navigate('/setting-finished');
+  };
 
   return (
     <Row
@@ -60,16 +66,22 @@ const InitialSettingsHeader = ({ step, onBack }: InitialSettingsHeaderProps) => 
           border-radius: 20px;
         `} />
       </div>
-      <span css={css`
-        color: var(--Gray, #E1E1E1);
-        text-align: center;
-        font-family: Pretendard;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.07px;
-      `}>
+      <span 
+        onClick={step >= 4 ? handleSkip : undefined}
+        css={css`
+          color: ${step >= 4 ? '#F66' : 'var(--Gray, #E1E1E1)'};
+          text-align: center;
+          font-family: Pretendard;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: -0.07px;
+          cursor: ${step >= 4 ? 'pointer' : 'default'};
+          &:hover {
+            opacity: ${step >= 4 ? 0.7 : 1};
+          }
+        `}>
         Skip
       </span>
     </Row>

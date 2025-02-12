@@ -14,21 +14,18 @@ const InitialSettingsCardContainer = ({ children }: InitialSettingsCardContainer
       position: relative;
       width: 90%;
       max-width: 353px;
-      min-height: 450px;
-      height: calc(100vh - 300px);
-      max-height: 577px;
+      min-height: 500px;
       margin: 0 auto;
-      margin-top: 100px;
-      margin-bottom: 50px; /* Added margin-bottom */
+      margin-top: 50px;
     `}>
+      
       {/* Left gradient (Yellow) */}
       <div css={css`
         position: absolute;
         left: -20px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
         width: 40px;
-        height: 80%;
+        height: 100%;
         border-radius: 20px;
         background: linear-gradient(90deg, rgba(255, 190, 57, 0.20) 0%, rgba(255, 190, 57, 0.05) 100%);
         filter: blur(5px);
@@ -39,10 +36,9 @@ const InitialSettingsCardContainer = ({ children }: InitialSettingsCardContainer
       <div css={css`
         position: absolute;
         right: -20px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
         width: 40px;
-        height: 80%;
+        height: 100%;
         border-radius: 20px;
         background: linear-gradient(90deg, rgba(255, 102, 102, 0.05) 0%, rgba(255, 102, 102, 0.20) 100%);
         filter: blur(5px);
@@ -57,7 +53,7 @@ const InitialSettingsCardContainer = ({ children }: InitialSettingsCardContainer
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
         backdrop-filter: blur(10px);
         width: 100%;
-        height: 100%;
+        min-height: 500px;
         padding: 20px;
       `}>
         {children}

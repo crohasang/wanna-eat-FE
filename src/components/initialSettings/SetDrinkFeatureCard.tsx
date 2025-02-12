@@ -22,12 +22,14 @@ const SetDrinkFeatureCard = ({ onValidationChange }: SetDrinkFeatureCardProps) =
     display: flex;
     justify-content: center;
     gap: 10px;
+    padding: 0 20px;
   `;
 
   const buttonStyle = (isSelected: boolean) => css`
     display: flex;
-    width: 149px;
-    padding: 20px 58.5px;
+    flex: 1;
+    max-width: 140px;
+    padding: 15px 0;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -37,6 +39,7 @@ const SetDrinkFeatureCard = ({ onValidationChange }: SetDrinkFeatureCardProps) =
     color: ${isSelected ? '#fff' : '#000'};
     white-space: nowrap;
     cursor: pointer;
+    font-size: 14px;
   `;
 
   const labelStyle = css`
@@ -73,7 +76,7 @@ const SetDrinkFeatureCard = ({ onValidationChange }: SetDrinkFeatureCardProps) =
         font-weight: 600;
         line-height: normal;
         letter-spacing: -0.125px;
-      `}>선호하는 카페 음료의 특징을<br/>선택해주세요.</div>
+      `}>선호하는 음료의 특징을<br/>선택해주세요.</div>
 
       <div css={css`
         margin-top: 10px;

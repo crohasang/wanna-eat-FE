@@ -72,13 +72,14 @@ const SetRestaurantTypeCard = ({ onValidationChange }: SetRestaurantTypeCardProp
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+        padding: 0 10px;
       `}>
         {['한식', '양식', '중식', '일식', '아시안', '기타'].map((type) => (
           <button
             key={type}
             css={css`
               display: flex;
-              padding: 40px 58.5px;
+              padding: 30px 0;
               justify-content: center;
               align-items: center;
               gap: 10px;
@@ -88,6 +89,8 @@ const SetRestaurantTypeCard = ({ onValidationChange }: SetRestaurantTypeCardProp
               color: ${selectedTypes.includes(type) ? '#fff' : '#000'};
               white-space: nowrap;
               cursor: pointer;
+              width: 100%;
+              font-size: 14px;
             `}
             onClick={() => handleTypeClick(type)}
           >
