@@ -9,12 +9,14 @@ import MakeMuckpotButton from '../components/restaurantList/MakeMuckpotButton';
 import MuckpotJoinModal from '../components/restaurantList/MuckpotJoinModal';
 import { HomeCardList, TAGS, muckpotData } from '../constants/dummyData';
 import MuckpotCreateModal from '../components/restaurantList/MuckpotCreateModal';
+import { useNavigate } from 'react-router-dom';
 
 const RestaurantList = () => {
   const [search, setSearch] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [homeCards, setHomeCards] = useState(HomeCardList);
   const [modalState, setModalState] = useState<'join' | 'create' | null>(null);
+  const navigation = useNavigate();
 
   const toggleHomeCardFavorite = (index: number) => {
     setHomeCards((prev) =>
@@ -70,7 +72,7 @@ const RestaurantList = () => {
           <MuckpotCreateModal
             isOpen={true}
             onClose={() => setModalState(null)}
-            onCreate={() => console.log('먹팟 생성')}
+            onCreate={() => navigation('/group/make')}
           />
         )}
       </Col>

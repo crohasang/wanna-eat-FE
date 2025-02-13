@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { Col } from '../commons/Flex';
 import QuestionBeeImage from '../../assets/bee/question.svg';
-
 interface MuckpotCreateModalProps {
   isOpen: boolean;
   onClose: () => void;

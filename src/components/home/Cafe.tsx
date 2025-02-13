@@ -13,11 +13,13 @@ import {
 } from '../../constants/dummyData';
 import MuckpotJoinModal from '../restaurantList/MuckpotJoinModal';
 import MuckpotCreateModal from '../restaurantList/MuckpotCreateModal';
+import { useNavigate } from 'react-router-dom';
 
 const Cafe = () => {
   const [groupCafes, setGroupCafes] = useState(groupCafeData);
   const [homeCards, setHomeCards] = useState(HomeCardList);
   const [modalState, setModalState] = useState<'join' | 'create' | null>(null);
+  const navigation = useNavigate();
 
   const toggleGroupFavorite = (index: number) => {
     setGroupCafes((prev) =>
@@ -99,7 +101,7 @@ const Cafe = () => {
         <MuckpotCreateModal
           isOpen={true}
           onClose={() => setModalState(null)}
-          onCreate={() => console.log('먹팟 생성')}
+          onCreate={() => navigation('/group/make')}
         />
       )}
     </Col>
