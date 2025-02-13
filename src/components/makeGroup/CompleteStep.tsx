@@ -4,7 +4,7 @@ import Button from '../common/Button';
 import CompleteImg from '../../assets/bee/flight.svg';
 
 interface CompleteStepProps {
-  onConfirm: () => void;
+  onConfirm?: () => void;
 }
 
 const CompleteStep = ({ onConfirm }: CompleteStepProps) => {

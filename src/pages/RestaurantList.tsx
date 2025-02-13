@@ -26,7 +26,7 @@ const RestaurantList = () => {
   return (
     <>
       <Col>
-        <BackHeader title={'식당'}></BackHeader>
+        <BackHeader firstTitle={'식당'}></BackHeader>
         <div
           css={css`
             margin-top: 12px;
