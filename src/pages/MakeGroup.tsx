@@ -25,7 +25,6 @@ const MakeGroup = () => {
     participants: [],
     message: '',
   });
-  console.log(groupData);
 
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
