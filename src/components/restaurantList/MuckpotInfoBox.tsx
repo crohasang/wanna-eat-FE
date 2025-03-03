@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Col, Row } from '../commons/Flex';
+import { Col, Row } from '../common/Flex';
 import TagList from '../home/TagList';
 import RestaurantImg from '../../assets/home/restaurant.svg';
 

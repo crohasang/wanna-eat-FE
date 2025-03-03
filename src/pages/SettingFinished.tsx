@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import flight from '../assets/bee/flight.svg';
-import { Col } from '../components/commons/Flex';
+import { Col } from '../components/common/Flex';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/common/Button';
 

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import BottomNavigation from '../components/commons/BottomNavigation';
-import { Col } from '../components/commons/Flex';
-import Header from '../components/commons/Header';
+import BottomNavigation from '../components/common/BottomNavigation';
+import { Col } from '../components/common/Flex';
+import Header from '../components/common/Header';
 import ContentBox from '../components/mypage/ContentBox';
 
 const data: Array<{

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Col } from '../commons/Flex';
+import { Col } from '../common/Flex';
 import Button from '../common/Button';
 import CompleteImg from '../../assets/bee/flight.svg';
 

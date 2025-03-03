@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Col } from "../components/commons/Flex"
+import { Col } from "../components/common/Flex"
 import logoPhrase from '../assets/home/logoPhrase.svg'
 import logoImgWhite from '../assets/home/logoImgWhite.svg'
 

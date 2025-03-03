@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { Col } from '../commons/Flex';
+import { Col } from '../common/Flex';
 import Button from '../common/Button';
-import BackHeader from '../commons/BackHeader';
+import BackHeader from '../common/BackHeader';
 import MuckpotInfoBox from '../restaurantList/MuckpotInfoBox';
 
 interface ConfirmStepProps {

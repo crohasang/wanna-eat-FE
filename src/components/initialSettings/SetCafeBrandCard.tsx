@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { useState, useEffect, useRef } from 'react';
 import InitialSettingsCardContainer from './InitialSettingsCardContainer';
 import { CAFE_BRANDS } from '../../constants/brands';
-import SearchDropdown from '../commons/SearchDropdown';
+import SearchDropdown from '../common/SearchDropdown';
 
 interface SetCafeBrandCardProps {
   onValidationChange: (isValid: boolean) => void;

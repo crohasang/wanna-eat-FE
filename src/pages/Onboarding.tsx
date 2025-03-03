@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
-import { Col } from '../components/commons/Flex';
+import { Col } from '../components/common/Flex';
 import logoPhrase from '../assets/home/logoPhrase.svg'
 import appLogoWhite from '../assets/home/appLogoWhite.svg'
 import Button from '../components/common/Button';

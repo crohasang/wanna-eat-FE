@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Row } from '../commons/Flex';
+import { Row } from '../common/Flex';
 
 interface TagFilterProps {
   tags: string[];
