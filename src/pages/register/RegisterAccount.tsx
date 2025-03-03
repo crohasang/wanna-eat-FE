@@ -77,7 +77,7 @@ const RegisterAccount = () => {
       transform: translateX(-50%);
       background: white;
     `}>
-      <BackHeader title="회원가입" />
+      <BackHeader firstTitle="회원가입" />
       <div css={css`padding: 0 20px;`}>
         <div css={css`
           margin-top: 30px;

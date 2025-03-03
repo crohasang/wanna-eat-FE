@@ -16,7 +16,7 @@ const ThirdPartyPolicy = () => {
         left: 50%;
         transform: translateX(-50%);
     `}>
-      <BackHeader title="개인정보 제3자 제공 동의" />
+      <BackHeader firstTitle="개인정보 제3자 제공 동의" />
       <Col css={css`
         padding: 0 20px;
         flex: 1;

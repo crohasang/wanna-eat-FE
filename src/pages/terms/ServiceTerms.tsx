@@ -16,7 +16,7 @@ const ServiceTerms = () => {
         left: 50%;
         transform: translateX(-50%);
     `}>
-      <BackHeader title="서비스 이용약관" />
+      <BackHeader firstTitle="서비스 이용약관" />
       <Col css={css`
         padding: 0 20px;
         flex: 1;
