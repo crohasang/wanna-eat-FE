@@ -18,6 +18,8 @@ import Group from './pages/Group';
 import MakeGroup from './pages/MakeGroup';
 import MakeGroupConfirm from './pages/MakeGroupConfirm';
 import MakeGroupStoreInput from './pages/MakeGroupStoreInput';
+import InitialSettings from './pages/InitialSettings';
+import SettingFinished from './pages/SettingFinished';
 
 function App() {
   const [showSplash, setShowSplash] = useState(() => {
@@ -85,6 +87,12 @@ function App() {
             <Route path='/findEmailAndPassword' element={<FindEmailAndPassword />} />
             <Route path='/myPage' element={<MyPage />} />
             <Route path='/register' element={<Register />} />
+            <Route path="/register/account" element={<RegisterAccount />} />
+            <Route path="/terms/service" element={<ServiceTerms />} />
+            <Route path="/terms/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms/third-party" element={<ThirdPartyPolicy />} />
+            <Route path="/initial-settings" element={<InitialSettings />} />
+            <Route path="/setting-finished" element={<SettingFinished />} />
             <Route path='/home' element={<Home />} />
             <Route path='/home/restaurant' element={<RestaurantList />} />
             <Route path='/home/cafe' element={<CafeList />} />
