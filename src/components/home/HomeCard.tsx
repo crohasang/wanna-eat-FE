@@ -1,4 +1,4 @@
-import { Col, Row } from '../commons/Flex';
+import { Col, Row } from '../common/Flex';
 import starFilledImg from '../../assets/home/starFilled.svg';
 import starOutlinedImg from '../../assets/home/starOutlined.svg';
 import { css } from '@emotion/react';

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { Col, Row } from '../components/commons/Flex';
-import Header from '../components/commons/Header';
+import { Col, Row } from '../components/common/Flex';
+import Header from '../components/common/Header';
 import topPhrase from '../assets/home/topPhrase.svg';
 import searchImg from '../assets/home/search.svg';
 import alarmImg from '../assets/home/alarm.svg';
@@ -9,7 +9,7 @@ import restaurantImg from '../assets/home/restaurant.svg';
 import cafeImg from '../assets/home/cafe.svg';
 import Restaurant from '../components/home/Restaurant';
 import Cafe from '../components/home/Cafe';
-import BottomNavigation from '../components/commons/BottomNavigation';
+import BottomNavigation from '../components/common/BottomNavigation';
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState('restaurant');

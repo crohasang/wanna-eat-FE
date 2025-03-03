@@ -1,4 +1,4 @@
-import { Row } from '../commons/Flex';
+import { Row } from '../common/Flex';
 import restaurantImg from '../../assets/home/restaurant.svg';
 import { css } from '@emotion/react';
 import rightArrowImg from '../../assets/rightArrow.svg';

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import BackHeader from '../components/commons/BackHeader';
-import { Col } from '../components/commons/Flex';
+import BackHeader from '../components/common/BackHeader';
+import { Col } from '../components/common/Flex';
 import { useState } from 'react';
 import Button from '../components/common/Button';
 import { useNavigate } from 'react-router-dom';

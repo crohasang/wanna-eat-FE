@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Col } from '../commons/Flex';
+import { Col } from '../common/Flex';
 import QuestionBeeImage from '../../assets/bee/question.svg';
 interface MuckpotCreateModalProps {
   isOpen: boolean;

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Col, Row } from '../commons/Flex';
+import { Col, Row } from '../common/Flex';
 import toggleImg from '../../assets/toggle.svg';
 
 interface ContentBoxProps {

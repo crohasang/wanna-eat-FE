@@ -1,5 +1,5 @@
-import { Col } from '../components/commons/Flex';
-import BackHeader from '../components/commons/BackHeader';
+import { Col } from '../components/common/Flex';
+import BackHeader from '../components/common/BackHeader';
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import TagFilter from '../components/restaurantList/TagFilter';

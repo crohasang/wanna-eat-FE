@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import { Row } from "../commons/Flex"
+import { Row } from "../common/Flex"
 import leftArrow from "../../assets/leftArrow.svg"
 import { useNavigate } from "react-router-dom"
 

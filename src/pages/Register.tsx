@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useState } from 'react';
-import { Col } from '../components/commons/Flex';
-import BackHeader from '../components/commons/BackHeader';
-import CheckBox from '../components/commons/CheckBox';
-import AgreementButton from '../components/commons/AgreementButton';
+import { Col } from '../components/common/Flex';
+import BackHeader from '../components/common/BackHeader';
+import CheckBox from '../components/common/CheckBox';
+import AgreementButton from '../components/common/AgreementButton';
 import Button from '../components/common/Button';
 import { useNavigate } from 'react-router-dom';
 

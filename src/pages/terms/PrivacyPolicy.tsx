@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Col } from '../../components/commons/Flex';
-import BackHeader from '../../components/commons/BackHeader';
+import { Col } from '../../components/common/Flex';
+import BackHeader from '../../components/common/BackHeader';
 
 const PrivacyPolicy = () => {
   return (
