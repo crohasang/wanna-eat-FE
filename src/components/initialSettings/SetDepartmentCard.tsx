@@ -9,7 +9,7 @@ interface SetDepartmentCardProps {
 
 const SetDepartmentCard = ({ onValidationChange }: SetDepartmentCardProps) => {
   const [department, setDepartment] = useState('');
-  const [isValid, setIsValid] = useState(false);
+  const [, setIsValid] = useState(false);
 
   const validateDepartment = (value: string) => {
     // 일단은 임시로 빈 칸만 아니면 통과

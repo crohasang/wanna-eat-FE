@@ -9,7 +9,7 @@ interface SetRestaurantTypeCardProps {
 
 const SetRestaurantTypeCard = ({ onValidationChange }: SetRestaurantTypeCardProps) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [isValid, setIsValid] = useState(false);
+  const [, setIsValid] = useState(false);
 
   const handleTypeClick = (type: string) => {
     setSelectedTypes(prev => {

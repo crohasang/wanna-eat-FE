@@ -59,7 +59,7 @@ const Register = () => {
         transform: translateX(-50%);
       `}
     >
-      <BackHeader title='회원가입' />
+      <BackHeader firstTitle='회원가입' />
       <div css={css`
         margin-top: 39px;
         padding: 10px 50px 20px 20px;
